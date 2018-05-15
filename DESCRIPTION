@@ -3,7 +3,7 @@ Type: Package
 Title: Data and utilities for the book Statistics for Data Science
 Version: 0.1.0
 Author: Daniel Kaplan
-Maintainer: Daniel Kaplan <kaplan@macalester.edu>
+Maintainer: Daniel  Kaplan <kaplan@macalester.edu>
 Description: Data sets from the old statPREP package, re-organized for the SDS book.
 License: MIT
 Encoding: UTF-8

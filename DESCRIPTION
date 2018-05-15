@@ -1,4 +1,4 @@
-Package: SDS
+Package: SDSdata
 Type: Package
 Title: Data and utilities for the book Statistics for Data Science
 Version: 0.1.0

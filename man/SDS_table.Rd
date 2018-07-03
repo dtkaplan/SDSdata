@@ -10,15 +10,15 @@ SDS_table(data, show_n = 6L, nrows = nrow(data), format = "html",
 \arguments{
 \item{data}{the data frame to be displayed}
 
-\item{show_n}{how many lines to display (default 6. Use `Inf` for all rows.)}
+\item{show_n}{how many lines to display (default 6. Use \code{Inf} for all rows.)}
 
-\item{nrows}{an integer specifying how many rows the from the data frame should be displayed in the footnote. Set to `Inf` to suppress footnote.}
+\item{nrows}{an integer specifying how many rows the from the data frame should be displayed in the footnote. Set to \code{Inf} to suppress footnote.}
 
-\item{format}{either `"html"` or `"latex"`}
+\item{format}{either \code{"html"} or \code{"latex"}}
 
 \item{caption}{string to pass as a caption to the table}
 
-\item{...}{additional arguments to `kableExtra::kable_styling()`, e.g. `"striped"`, `"hover"`}
+\item{...}{additional arguments to \code{kableExtra::kable_styling()}, e.g. \code{"striped"}, \code{"hover"}}
 }
 \description{
 Creates HTML or Latex markup with a footnote showing how many rows

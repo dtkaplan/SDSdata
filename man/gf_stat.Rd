@@ -11,18 +11,18 @@ gf_stat(object, formula, data = NULL, stat = NULL, geom = gf_errorbar,
 \item{object}{When chaining, this holds an object produced in the
 earlier portions of the chain. Most users can safely ignore this argument. See details and examples.}
 
-\item{formula}{A formula as with `dfstats` - quantitative response vs categorical
+\item{formula}{A formula as with \code{dfstats} - quantitative response vs categorical
 explanatory vars}
 
 \item{data}{A data frame}
 
 \item{stat}{A single statistic to be display, e.g., mean, ci.mean, median, ...}
 
-\item{...}{statistics to calculate (as with `df_stats`)}
+\item{...}{statistics to calculate (as with \code{df_stats})}
 }
 \description{
 Creates a graphics layer displaying a point or interval statistic (as
-from `dfstats`).
+from \code{dfstats}).
 }
 \examples{
 gf_jitter(price ~ cut, data = tail(diamonds,1000), alpha = 0.1) \%>\%

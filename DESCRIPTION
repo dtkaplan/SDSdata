@@ -8,6 +8,8 @@ Description: Data sets from the old statPREP package, re-organized for the SDS b
 License: MIT
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.0.1
 Depends: magrittr
 Imports: knitr, kableExtra, htmltools
+Suggests: testthat

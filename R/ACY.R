@@ -60,9 +60,9 @@ acy_sim <- function(story = NULL, ..., samp_n = 5) {
       if (vars[k] %in% names(action_names)) {
         label <- action_names[[vars[k]]]
         if (is.numeric(label)) c(0, label)
-        else factor(c("o", label), labels = c("o", label))
+        else factor(c("o", label), levels = c("o", label))
       } else {
-        factor(c("o", vars[k]), labels = c("o", vars[k]))
+        factor(c("o", vars[k]), levels = c("o", vars[k]))
       }
     res[[k]] <- action_levels[1 + values[[k]]]
   }

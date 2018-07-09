@@ -16,13 +16,15 @@
 #' @param story Optional list containing formulas and/or label names
 #' @param ... more formulas describing the process and/or label names
 #' @param samp_n Integer giving the number of rows in the output
+#' @param numerical List of (quoted) variable names for which to append a numerical output, which
+#' will be the underlying log odds for the discrete version of that variable.
 #'
 #' @examples
-#' acy_sim(x ~ 0, y ~ x, samp_n = 20)
+#' acy_sim(x ~ 0, y ~ x, samp_n = 20, numerical = "y")
 #' acy_sim(X ~ 0, Y ~ 10* X - 1, Z ~ - 3 + 10 * Y, X = 1, Y = "murder", Z = "telegraph", samp_n = 50)
 #'
 #' @export
-acy_sim <- function(story = NULL, ..., samp_n = 5) {
+acy_sim <- function(story = NULL, ..., samp_n = 5, numerical = "Y") {
   # split ... into initial conditions and processes
   arguments <- c(story, list(...))
   formulas <- unlist(lapply(arguments, FUN = function(x) inherits(x, "formula")))
@@ -38,7 +40,8 @@ acy_sim <- function(story = NULL, ..., samp_n = 5) {
   if (any(left_count != 1)) stop("Formulas must have a single variable on the LHS.")
   if ( ! all(vars %in% left)) {
     missing <- setdiff(vars, left)
-    stop("All variables mnust have a formula. Missing: ", paste(paste0("'",missing,"'"), collapse = ", " ))
+    stop("All variables mnust have a formula. Missing: ",
+         paste(paste0("'",missing,"'"), collapse = ", " ))
   }
   # Get the call for each formula, that is the LHS
   right <- lapply(influences, FUN = function(x) rlang::f_rhs(x))
@@ -65,6 +68,8 @@ acy_sim <- function(story = NULL, ..., samp_n = 5) {
         factor(c("o", vars[k]), levels = c("o", vars[k]))
       }
     res[[k]] <- action_levels[1 + values[[k]]]
+    if (vars[k] %in% numerical)
+      res[[paste0(vars[k], "_", "num")]] <- new + rnorm(length(x))
   }
 
   res

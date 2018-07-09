@@ -4,7 +4,7 @@
 \alias{acy_sim}
 \title{Simulate ACY processes}
 \usage{
-acy_sim(story = NULL, ..., samp_n = 5)
+acy_sim(story = NULL, ..., samp_n = 5, numerical = "Y")
 }
 \arguments{
 \item{story}{Optional list containing formulas and/or label names}
@@ -12,6 +12,9 @@ acy_sim(story = NULL, ..., samp_n = 5)
 \item{...}{more formulas describing the process and/or label names}
 
 \item{samp_n}{Integer giving the number of rows in the output}
+
+\item{numerical}{List of (quoted) variable names for which to append a numerical output, which
+will be the underlying log odds for the discrete version of that variable.}
 }
 \description{
 Generates samples from an ACY process. ACY refers to the paradigm where there
@@ -29,7 +32,7 @@ A label name can be an element of \code{...} or \code{story}. This label will be
 the observed value if the underlying variable is 1. (\code{o} or 0 is used otherwise.)
 }
 \examples{
-acy_sim(x ~ 0, y ~ x, samp_n = 20)
+acy_sim(x ~ 0, y ~ x, samp_n = 20, numerical = "y")
 acy_sim(X ~ 0, Y ~ 10* X - 1, Z ~ - 3 + 10 * Y, X = 1, Y = "murder", Z = "telegraph", samp_n = 50)
 
 }

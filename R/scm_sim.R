@@ -15,11 +15,11 @@
 #' @param samp_n Integer giving the number of rows in the output
 #'
 #' @examples
-#' scm_sim(X ~ rnorm(samp_n), Y ~ 10 + runif(samp_n) + 5 * X, samp_n = 20)
-#' scm_sim(X ~ 0, Y ~ 10* X - 1, Z ~ - 3 + 10 * Y, X = 1, Y = "murder", Z = "telegraph", samp_n = 50)
+#' sem_sim(X ~ rnorm(samp_n), Y ~ 10 + runif(samp_n) + 5 * X, samp_n = 20)
+#' sem_sim(X ~ 0, Y ~ 10* X - 1, Z ~ - 3 + 10 * Y, X = 1, Y = "murder", Z = "telegraph", samp_n = 50)
 #'
 #' @export
-scm_sim <- function(story = NULL, ..., samp_n = 5) {
+sem_sim <- function(story = NULL, ..., samp_n = 5) {
   # split ... into initial conditions and processes
   arguments <- c(story, list(...))
   formulas <- unlist(lapply(arguments, FUN = function(x) inherits(x, "formula")))

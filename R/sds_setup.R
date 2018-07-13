@@ -11,5 +11,7 @@ sds_setup <- function(...) {
   library(mosaicModel)
   library(NHANES)
   library(ggformula)
+  library(quickDAG)
+  knitr::opts_chunk$set(fig.align=FALSE, echo = FALSE)
   ggplot2::theme_set(theme_bw())
 }

@@ -6,12 +6,13 @@
 #' @export
 sds_setup <- function(...) {
   library(SDSdata)
+  library(tufte)
   library(mosaic)
   library(mosaicCore)
   library(mosaicModel)
   library(NHANES)
   library(ggformula)
   library(quickDAG)
-  knitr::opts_chunk$set(fig.align=FALSE, echo = FALSE, message = FALSE, warning = FALSE)
+  knitr::opts_chunk$set(fig.align=FALSE, echo = FALSE, message = FALSE, warning = FALSE, out.width = "80%")
   ggplot2::theme_set(theme_bw())
 }

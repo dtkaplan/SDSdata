@@ -1,0 +1,7 @@
+# Highway Fatality data from FARS
+
+Nicole Kapitula sent `DEATHSBYDATE2.csv` giving the number of highway fatalities each day for 10 years.
+
+`HighwayDeaths.R` is the `datapasta` take on the summary table Randy Pruim found [here](https://www-fars.nhtsa.dot.gov/Main/index.aspx)
+
+The raw FARS data, with the many different data files for each year, are [here](ftp://ftp.nhtsa.dot.gov/FARS)

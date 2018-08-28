@@ -4,8 +4,8 @@
 \alias{gf_stat}
 \title{Graph basic descriptive statistics on a quantitative variable}
 \usage{
-gf_stat(object, formula, data = NULL, stat = NULL, geom = gf_errorbar,
-  ...)
+gf_stat(object, formula, data = NULL, stat = NULL,
+  geom = gf_errorbar, ...)
 }
 \arguments{
 \item{object}{When chaining, this holds an object produced in the

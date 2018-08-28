@@ -10,6 +10,8 @@ Ramsey_county_fips <- 27123
 
 Ramsey_weather <- NULL
 
+# Documentation of variable names in the weather files: ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ish-format-document.pdf
+
 for (year in 1991:2018) {
   cat(year, "\n")
   Surface <- try(

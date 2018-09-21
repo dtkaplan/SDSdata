@@ -13,6 +13,11 @@ sds_setup <- function(...) {
   library(NHANES)
   library(ggformula)
   library(quickDAG)
+  library(MASS)
+  library(rpart)
+  library(randomForest)
+  library(kernlab)
+  library(tibble)
   knitr::opts_chunk$set(fig.align=FALSE, echo = FALSE, message = FALSE, warning = FALSE, out.width = "80%")
   ggplot2::theme_set(theme_bw())
 }

@@ -9,16 +9,18 @@
 #' @param footnote character string to be placed at the bottom of the table in place of the usual "... and so on for __ rows."
 #' @param format either `"html"` or `"latex"`. Default will use `knitr::is_latex_output()` to decide.
 #' @param caption string to pass as a caption to the table
+#' @param align optional column alignment instructions passed to `kable`
 #' @param ... additional arguments to `kableExtra::kable_styling()`, e.g. `"striped"`, `"hover"`
 #' @examples
 #' sds_table(mtcars, "striped", "hover")
 #' sds_table(mtcars, show_n = 3, caption="Data about cars")
 #' @export
 sds_table <- function(data, show_n = 6L, nrows = nrow(data), footnote = NULL,
-                      format=ifelse(knitr::is_latex_output(), "latex", "html"), caption="", ...) {
+                      format=ifelse(knitr::is_latex_output(), "latex", "html"), caption="",
+                      align = NULL, ...) {
   res <-
     knitr::kable(head(data, min(c(nrows, show_n))),
-                 format = format, caption=caption, row.names = FALSE) %>%
+                 format = format, caption=caption, row.names = FALSE, align = align) %>%
     kableExtra::kable_styling(full_width = FALSE, ...)
 
   if (is.null(footnote) && nrows > show_n) {

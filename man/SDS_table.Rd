@@ -6,7 +6,7 @@
 \usage{
 sds_table(data, show_n = 6L, nrows = nrow(data), footnote = NULL,
   format = ifelse(knitr::is_latex_output(), "latex", "html"),
-  caption = "", ...)
+  caption = "", align = NULL, ...)
 }
 \arguments{
 \item{data}{the data frame to be displayed}
@@ -20,6 +20,8 @@ sds_table(data, show_n = 6L, nrows = nrow(data), footnote = NULL,
 \item{format}{either \code{"html"} or \code{"latex"}. Default will use \code{knitr::is_latex_output()} to decide.}
 
 \item{caption}{string to pass as a caption to the table}
+
+\item{align}{optional column alignment instructions passed to \code{kable}}
 
 \item{...}{additional arguments to \code{kableExtra::kable_styling()}, e.g. \code{"striped"}, \code{"hover"}}
 }

@@ -2,6 +2,8 @@
 
 export(acy_sim)
 export(app_thumbnail)
+export(dag_simulate)
+export(dag_system)
 export(gf_stat)
 export(make_thumbnail_image)
 export(mean_vs_mean)

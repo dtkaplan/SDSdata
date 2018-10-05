@@ -2,17 +2,21 @@
 #'
 #' Create and run structural equation model using formulas for each node.
 #'
+#' @param starter an optional data frame defining exogenous values of the variables in the formulas.
 #' @param ... Formulas specifying the model.
+#' @param seed an optional random seed for use in `set.seed()`.
 #'
-#' @details There cannot be any cycles in the DAG (as the name DAG indicates.) You can use `unif()`
-#' and `gauss()` as random inputs.
+#' @details There cannot be any cycles in the DAG (as the name DAG indicates.)
+#' You can use `uniform()`, `gaussian()`, `discrete()`, or `toss_up` as random inputs. They correspond
+#' respectively to `runif`, `rnorm`, `sample`, and Bernouilli trials.
 #'
 #' @examples
-#' dag <- dag_system(A ~ unif(), B ~ 3 + 10*A)
+#' dag <- dag_system(A ~ uniform(), B ~ 3 + 10*A)
 #' dag_simulate(dag, n = 5)
 
 #' @export
-dag_system <- function(...) {
+dag_system <- function(..., seed = NULL) {
+  if ( !is.null(seed)) set.seed(seed)
   # Nodes
   nodes <- list(...)
   # are they all formulas?
@@ -45,21 +49,35 @@ dag_system <- function(...) {
 }
 
 #' @export
-dag_simulate <- function(dag, n = 5) {
+dag_simulate <- function(dag, n = 5, starter = NULL) {
   if ( ! inherits(dag, "sds_dag"))
     stop("Requires a dag as produced by dag_system().")
 
   # Create a data frame with the right number of rows.
-  Res <- data.frame(..starter.. = rep("", n), stringsAsFactors = FALSE)
+  Res <- if (is.null(starter))
+    data.frame(..starter.. = rep("", n), stringsAsFactors = FALSE)
+  else
+    starter
+
+  # Some random number generators that know what n should be
+  uniform <- function(min = 0, max = 1) runif(nrow(Res), min = min, max = max)
+  gaussian <- function(sd = 1, mean = 0) rnorm(nrow(Res), mean = mean, sd = sd)
+  discrete <- function(levels, prob = NULL)
+    sample(levels, nrow(Res), replace = TRUE, prob = prob)
+  toss_up <- function(levels = c("H", "T"), prob = 0.5, log_odds = NULL) {
+    if (!is.null(log_odds)) prob <- exp(log_odds) / (1 + exp(log_odds))
+    tmp <- as.integer(1 + runif(nrow(Res)) <= prob)
+    levels[tmp]
+  }
+
+  vnames <- names(dag)
 
   for (k in 1:length(dag)) {
-    # Some random number generators that know what n should be
-    unif <- function(min = 0, max = 1, n = 1) runif(nrow(Res), min = min, max = max)
-    gauss <- function(sd = 1, mean = 0, n = 1) rnorm(nrow(Res), mean = mean, sd = sd)
+    if (vnames[k] %in% names(Res)) next
 
     expression <- rlang::f_rhs(dag[[k]])
-    tmp <- eval_tidy(expression, data = Res)
-    Res[[names(dag)[k]]] <- tmp
+    tmp <- rlang::eval_tidy(expression, data = Res)
+    Res[[vnames[k]]] <- tmp
   }
 
   Res$..starter.. <- NULL

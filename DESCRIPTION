@@ -11,5 +11,5 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.0
 Depends: magrittr
-Imports: knitr, kableExtra, htmltools
+Imports: knitr, kableExtra, htmltools, rlang
 Suggests: testthat

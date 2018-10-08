@@ -60,7 +60,8 @@ dag_simulate <- function(dag, n = 5, starter = NULL) {
     starter
 
   # Some random number generators that know what n should be
-  uniform <- function(min = 0, max = 1) runif(nrow(Res), min = min, max = max)
+  # uniform() and gaussian() have unit variance
+  uniform <- function(min = -1.732, max = 1.732) runif(nrow(Res), min = min, max = max)
   gaussian <- function(sd = 1, mean = 0) rnorm(nrow(Res), mean = mean, sd = sd)
   discrete <- function(levels, prob = NULL)
     sample(levels, nrow(Res), replace = TRUE, prob = prob)

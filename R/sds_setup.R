@@ -19,6 +19,7 @@ sds_setup <- function(...) {
   library(kernlab)
   library(tibble)
   library(dplyr)
+  library(tidyr)
   knitr::opts_chunk$set(fig.align=FALSE, echo = FALSE, message = FALSE, warning = FALSE, out.width = "80%")
   ggplot2::theme_set(theme_bw())
 }

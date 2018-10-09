@@ -10,14 +10,32 @@
 #' @param format either `"html"` or `"latex"`. Default will use `knitr::is_latex_output()` to decide.
 #' @param caption string to pass as a caption to the table
 #' @param align optional column alignment instructions passed to `kable`
+#' @param in_margin If TRUE, format table to go in margin for LaTeX Tufte-style layout. BUT UNFORTUNATELY, THIS
+#' WORKS ONLY IN INLINE MODE, while htmlformats DON'T work in inline mode.
+#' @param label reference label for bookdown, e.g. "my-table" to empower reference with tab:my-table". By
+#' default, grabbed from chunk name.
 #' @param ... additional arguments to `kableExtra::kable_styling()`, e.g. `"striped"`, `"hover"`
+#'
+#' @details `sds_table()` can access the knitr chunk label and the value of `in_margin`. Don't output
+#' the value directly from the chunk. Instead, assign the output of `sds_table()` to a variable
+#' and use an inline expression to insert that variable.
+
+
 #' @examples
 #' sds_table(mtcars, "striped", "hover")
 #' sds_table(mtcars, show_n = 3, caption="Data about cars")
 #' @export
 sds_table <- function(data, show_n = 6L, nrows = nrow(data), footnote = NULL,
-                      format=ifelse(knitr::is_latex_output(), "latex", "html"), caption="",
-                      align = NULL, ...) {
+                      format=ifelse(knitr::is_latex_output(), "latex", "html"), caption=NULL,
+                      align = NULL, in_margin = knitr::opts_current$get("in_margin"), label = knitr::opts_current$get("label"),
+                      ...) {
+  if (is.null(in_margin)) in_margin <- FALSE
+  # Save caption for later use if table is to be in marging
+  save_caption <- NULL
+  if (in_margin && format == "latex") {
+    save_caption <- caption
+    caption <- NULL
+  }
   res <-
     knitr::kable(head(data, min(c(nrows, show_n))),
                  format = format, caption=caption, row.names = FALSE, align = align) %>%
@@ -28,5 +46,18 @@ sds_table <- function(data, show_n = 6L, nrows = nrow(data), footnote = NULL,
   }
   res <- res %>%
       kableExtra::footnote(general_title = "", general = footnote)
+  if (in_margin) {
+    if (format == "latex") {
+    res <- gsub("\\\\begin\\{table\\}\\[H\\]", "", res)
+    res <- gsub("\\\\end\\{table\\}", "", res)
+    if (is.null(label)) label <- "bogus-label"
+    res <- paste(sprintf("\\captionof{table}{\\label{tab:%s}%s}\\vspace{1em}",
+                         label,
+                         save_caption), res)
+    return(tufte::margin_note(I(res)))
+    } else if (format == "html") {
+      # Don't know how to do this.
+    }
+  }
   res
 }

@@ -6,7 +6,9 @@
 \usage{
 sds_table(data, show_n = 6L, nrows = nrow(data), footnote = NULL,
   format = ifelse(knitr::is_latex_output(), "latex", "html"),
-  caption = "", align = NULL, ...)
+  caption = NULL, align = NULL,
+  in_margin = knitr::opts_current$get("in_margin"),
+  label = knitr::opts_current$get("label"), ...)
 }
 \arguments{
 \item{data}{the data frame to be displayed}
@@ -23,11 +25,22 @@ sds_table(data, show_n = 6L, nrows = nrow(data), footnote = NULL,
 
 \item{align}{optional column alignment instructions passed to \code{kable}}
 
+\item{in_margin}{If TRUE, format table to go in margin for LaTeX Tufte-style layout. BUT UNFORTUNATELY, THIS
+WORKS ONLY IN INLINE MODE, while htmlformats DON'T work in inline mode.}
+
+\item{label}{reference label for bookdown, e.g. "my-table" to empower reference with tab:my-table". By
+default, grabbed from chunk name.}
+
 \item{...}{additional arguments to \code{kableExtra::kable_styling()}, e.g. \code{"striped"}, \code{"hover"}}
 }
 \description{
 Creates HTML or Latex markup with a footnote showing how many rows
 there are in total.
+}
+\details{
+\code{sds_table()} can access the knitr chunk label and the value of \code{in_margin}. Don't output
+the value directly from the chunk. Instead, assign the output of \code{sds_table()} to a variable
+and use an inline expression to insert that variable.
 }
 \examples{
 sds_table(mtcars, "striped", "hover")

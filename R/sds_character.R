@@ -29,8 +29,8 @@ sds_character <- function(char, show = FALSE, format = ifelse(knitr::is_latex_ou
     "➔" = "$\\rightarrow$",
     "∞" = "$\\infty$",
     "±" = "$\\pm$",
-    "≤" = "$\\leq",
-    "≥" = "$\\geq"
+    "≤" = "$\\leq$",
+    "≥" = "$\\geq$"
   )
 
   if (show) return(substitutions)

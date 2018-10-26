@@ -42,7 +42,7 @@ sds_character <- function(char, show = FALSE, format = ifelse(knitr::is_latex_ou
 }
 
 #' @export
-sds_tilde <- function(width = 5) sds_image("images/tilde-small.png", width = width)
+sds_tilde <- function(width = 3) sds_image("images/tilde-small.png", width = width)
 #' @export
 sds_leftarrow <- function() sds_character("←")
 #' @export

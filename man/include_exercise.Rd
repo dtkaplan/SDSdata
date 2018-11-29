@@ -4,10 +4,21 @@
 \alias{include_exercise}
 \title{Insert an exercise from a file}
 \usage{
-include_exercise(id, show_answer = TRUE, directory = "Exercises/")
+include_exercise(id, show_answer = getOption("show_exercise", TRUE),
+  directory = "Exercises/")
+}
+\arguments{
+\item{id}{the unique ID of the exercise file. Don't include the file type suffix ".Rmd" in the id.}
+
+\item{show_answer}{if TRUE, include the answer comments from the file.}
+
+\item{directory}{the directory where the exercise file is to be found}
 }
 \description{
 Each exercise is contained in its own file, with a unique ID. This function
 reads the file for that ID, knits the contents, and returns the knitted contents.
 Typically this will be used to insert the exercise into an Rmd file.
+}
+\details{
+If not specified, argument \code{show_answer} will be read from \code{options("show_answer")}.
 }

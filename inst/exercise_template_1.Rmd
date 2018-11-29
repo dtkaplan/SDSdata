@@ -7,13 +7,17 @@ topics: [first, second, third]
 id: 
 ---
 
-```{r include = FALSE}
+```{r XXAXX-default, include = FALSE}
 SDSdata::sds_setup()
 ```
 
 This is an example of an exercise file.
 
 
-1. Question: asked here   -A- Short answer  
-     -A- Longer answer 
+```{r XXAXX-1, echo = FALSE}
 
+```
+
+```{r XXAXX-2, echo = FALSE}
+
+```

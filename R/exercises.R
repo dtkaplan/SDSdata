@@ -4,29 +4,46 @@
 #' reads the file for that ID, knits the contents, and returns the knitted contents.
 #' Typically this will be used to insert the exercise into an Rmd file.
 #'
-#' @params id the unique ID of the exercise file
-#' @directory the directory where the exercise file is to be found
-#' @show_answer if true, include the answer comments from the file
+#' If not specified, argument `show_answer` will be read from `options("show_answer")`.
+#'
+#' @param id the unique ID of the exercise file. Don't include the file type suffix ".Rmd" in the id.
+#' @param directory the directory where the exercise file is to be found
+#' @param show_answer if TRUE, include the answer comments from the file.
 #'
 #' @export
-include_exercise <- function(id, show_answer = TRUE, directory = "Exercises/") {
+include_exercise <- function(id, show_answer = getOption("show_exercise", TRUE), directory = "Exercises/") {
   content <- readLines(paste0(directory, id, ".Rmd"))
   yaml_stuff <- get_yaml_header(content)
   content <- kill_yaml_header(content)
   if ( ! show_answer) { # delete the answer comments}
-  content <- gsub("-A-.+$", "", content, perl = TRUE)
+    content <- gsub("-A-.+$", "", content, perl = TRUE)
+    content <- kill_answer_block(content)
   } else {
-  content <- gsub("-A-([[:space:]]*)(.*)$",
-  ">> \\2",
-  content, perl = TRUE)
+    content <- gsub("-A-([[:space:]]*)(.*)$",
+                    ">> \\2",
+                    content, perl = TRUE)
   }
   knitr::knit(text = content)
 }
 
+kill_answer_block <- function(str) {
+   starts <- grep("<\\!\\-\\-answer\\-start\\-\\->", str)
+   ends <- grep("<\\!\\-\\-answer\\-end\\-\\->", str)
+   if (length(starts) != length(ends) || any(starts >= ends))
+     stop("Unmatched answer-block delimiter.")
+   line_numbers <- integer(0)
+   for (k in 1:length(starts)) {
+     line_numbers <- c(line_numbers, starts[k]:ends[k])
+   }
+   str[-line_numbers]
+}
+
 new_exercise_template <- function() {
+  exercise_id <- make_random_id()
   contents <- readLines(system.file("exercise_template_1.Rmd", package = "SDSdata"))
   contents <- gsub("date:", paste("date:", Sys.Date()), contents)
-  contents <- gsub("id:", paste("id:", make_random_id()), contents)
+  contents <- gsub("id:", paste("id:", exercise_id), contents)
+  contents <- gsub("XXAXX", exercise_id, contents)
   paste(contents,  collapse = "\n")
 
 }

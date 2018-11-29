@@ -1,0 +1,4 @@
+Name: new_exercise
+Description: Insert a template for a new exercise
+Binding: sds_exercise
+Interactive: false

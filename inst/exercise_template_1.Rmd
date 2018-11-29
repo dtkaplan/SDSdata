@@ -1,0 +1,19 @@
+---
+chapter: "none yet"
+author: "Daniel Kaplan"
+date: 
+version: 0.1
+topics: [first, second, third]
+id: 
+---
+
+```{r include = FALSE}
+SDSdata::sds_setup()
+```
+
+This is an example of an exercise file.
+
+
+1. Question: asked here   -A- Short answer  
+     -A- Longer answer 
+

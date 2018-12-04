@@ -1,4 +1,4 @@
 Name: new_exercise
-Description: Insert a template for a new exercise
+Description: Create a new exercise file following the template
 Binding: sds_exercise
 Interactive: false

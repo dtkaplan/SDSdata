@@ -44,8 +44,11 @@ new_exercise_template <- function() {
   contents <- gsub("date:", paste("date:", Sys.Date()), contents)
   contents <- gsub("id:", paste("id:", exercise_id), contents)
   contents <- gsub("XXAXX", exercise_id, contents)
-  paste(contents,  collapse = "\n")
+  res <- paste(contents,  collapse = "\n")
 
+
+  attributes(res) <- list(file_name = paste0(exercise_id, ".Rmd"))
+  res
 }
 get_yaml_header <- function(txt) {
   dashes <- which(grepl("^---$", txt))
@@ -67,11 +70,12 @@ animal_words <- c("ant", "bear", "bee", "bird", "camel", "cat", "cheetah", "chic
   "hamster",  "horse", "kangaroo", "kitten", "lamb", "lion", "lobster",
   "monkey", "octopus", "owl", "panda", "pig", "puppy", "rabbit", "rat",
   "seal", "shark", "sheep", "snail", "snake", "spider", "squirrel", "tiger", "turtle",
-  "wolf", "zebra", "calf", "doe", "buck")
+  "wolf", "zebra", "calf", "doe", "buck", "girl", "boy", "child", "pine", "birch", "maple", "elm", "larch",
+  "aspen", "fir", "spruce", "walnut", "oak", "ash", "beech")
 
 verb_words <- c(
   "beat", "become", "begin", "bend","bet", "bid", "bite",
-  "blow",  "break", "bring", "build", "burn", "buy",  "catch", "choose",
+  "blow",  "break", "bring", "build", "burn", "buy",  "catch", "chew", "choose",
   "come",  "cost", "cut", "dig","dive",
   "do","draw",  "dream",  "drive",  "drink",    "eat",   "fall",  "feel", "fight",
   "find", "fly", "forget", "forgive", "freeze", "get", "give", "go",
@@ -79,14 +83,15 @@ verb_words <- c(
   "hold",  "hurt",  "keep",  "know",  "iron", "light",  "lay",  "lead","leave",  "lend", "let", "lie", "lose",
   "make", "mean",  "meet", "pay","put", "read","ride", "ring","rise",    "run","say",
   "see",  "sell","send",  "show",   "shut",  "sing",
-  "sit", "sleep",  "speak", "spend", "stand",   "swim",  "take",  "teach",
-  "tear",  "tell", "think",  "throw", "understand",   "wake",  "wear",   "win", "write"
+  "sit", "sleep",  "speak", "spend", "stand",   "swim",  "take", "talk", "teach",
+  "tear",  "tell", "think",  "throw", "understand", "walk",  "wake",  "wear",   "win", "write"
   )
 
 house_words <- c(
-  "blanket", "clock", "plant", "cotton", "linen", "map", "knife", "lamp", "magnet", "mug", "glasses",
+  "blanket", "clock", "candy", "plant", "cotton", "linen", "map", "knife", "lamp", "magnet", "mug", "glasses",
   "radio", "rug", "saucer", "saw", "shirt", "sheet", "shoe", "socks", "pants", "dress", "sofa", "painting",
-  "pen", "pencil", "piano", "plate", "bowl", "table", "chair", "vase", "stove", "oven", "ring", "door", "window", "drawer")
+  "pen", "pencil", "piano", "plate", "bowl", "table", "chair", "vase", "stove", "oven", "ring", "door",
+  "window", "drawer", "bed", "futon", "pot", "book", "bottle", "knob", "coat", "jacket", "dish", "fork", "spoon", "scarf", "gloves")
 
 make_random_id <- function(){
   paste(

@@ -71,7 +71,7 @@ animal_words <- c("ant", "bear", "bee", "bird", "camel", "cat", "cheetah", "chic
   "monkey", "octopus", "owl", "panda", "pig", "puppy", "rabbit", "rat",
   "seal", "shark", "sheep", "snail", "snake", "spider", "squirrel", "tiger", "turtle",
   "wolf", "zebra", "calf", "doe", "buck", "girl", "boy", "child", "pine", "birch", "maple", "elm", "larch",
-  "aspen", "fir", "spruce", "walnut", "oak", "ash", "beech")
+  "aspen", "fir", "spruce", "walnut", "oak", "ash", "beech", "falcon")
 
 verb_words <- c(
   "beat", "become", "begin", "bend","bet", "bid", "bite",
@@ -80,18 +80,19 @@ verb_words <- c(
   "do","draw",  "dream",  "drive",  "drink",    "eat",   "fall",  "feel", "fight",
   "find", "fly", "forget", "forgive", "freeze", "get", "give", "go",
   "grow", "hang",  "have",  "hear",   "hide",    "hit",
-  "hold",  "hurt",  "keep",  "know",  "iron", "light",  "lay",  "lead","leave",  "lend", "let", "lie", "lose",
-  "make", "mean",  "meet", "pay","put", "read","ride", "ring","rise",    "run","say",
+  "hold",  "hurt",  "keep",  "know",  "iron", "jump", "light",  "lay",  "lead","leave",  "lend", "let", "lie", "lose",
+  "make", "mean",  "meet", "pay","put", "read","ride", "ring","rise",  "run","say",
   "see",  "sell","send",  "show",   "shut",  "sing",
   "sit", "sleep",  "speak", "spend", "stand",   "swim",  "take", "talk", "teach",
-  "tear",  "tell", "think",  "throw", "understand", "walk",  "wake",  "wear",   "win", "write"
+  "tear",  "tell", "think",  "throw", "toss", "understand", "walk",  "wake",  "wear",   "win", "write"
   )
 
 house_words <- c(
   "blanket", "clock", "candy", "plant", "cotton", "linen", "map", "knife", "lamp", "magnet", "mug", "glasses",
   "radio", "rug", "saucer", "saw", "shirt", "sheet", "shoe", "socks", "pants", "dress", "sofa", "painting",
   "pen", "pencil", "piano", "plate", "bowl", "table", "chair", "vase", "stove", "oven", "ring", "door",
-  "window", "drawer", "bed", "futon", "pot", "book", "bottle", "knob", "coat", "jacket", "dish", "fork", "spoon", "scarf", "gloves")
+  "window", "drawer", "bed", "futon", "pot", "book", "bottle", "knob", "coat", "jacket", "dish", "fork", "spoon", "scarf", "gloves",
+  "roof", "room", "closet", "kitchen", "kayak", "canoe")
 
 make_random_id <- function(){
   paste(

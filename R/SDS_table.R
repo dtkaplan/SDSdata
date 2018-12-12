@@ -26,8 +26,11 @@
 #' sds_table(mtcars, show_n = 3, caption="Data about cars")
 #' @export
 sds_table <- function(data, show_n = 6L, nrows = nrow(data), footnote = NULL,
-                      format=ifelse(knitr::is_latex_output(), "latex", "html"), caption=NULL,
-                      align = NULL, in_margin = knitr::opts_current$get("in_margin"), label = knitr::opts_current$get("label"),
+                      format=ifelse(knitr::is_latex_output(), "latex", "html"),
+                      caption=NULL,
+                      align = NULL,
+                      in_margin = knitr::opts_current$get("in_margin"),
+                      label = knitr::opts_current$get("label"),
                       ...) {
   if (is.null(in_margin)) in_margin <- FALSE
   # Save caption for later use if table is to be in marging
@@ -46,6 +49,14 @@ sds_table <- function(data, show_n = 6L, nrows = nrow(data), footnote = NULL,
   }
   res <- res %>%
       kableExtra::footnote(general_title = "", general = footnote)
+  if (is.null(caption)) {
+    # remove the float in latex and center properly
+    res <- gsub("\\\\begin\\{table\\}\\[H\\]", "\\\\begin\\{center\\}", res)
+    res <- gsub("\\\\end\\{table\\}", "\\\\end\\{center\\}", res)
+    #res <- gsub("\\\\centering", "", res) # kill the centering
+     # if (format == "latex")
+     #   res <- paste0("{", res, "}", collapse = "\n") # keep the centering local.
+  }
   if (in_margin) {
     if (format == "latex") {
     res <- gsub("\\\\begin\\{table\\}\\[H\\]", "", res)

@@ -11,7 +11,9 @@
 #' @param show_answer if TRUE, include the answer comments from the file.
 #'
 #' @export
-include_exercise <- function(id, show_answer = getOption("show_exercise", TRUE), directory = "Exercises/") {
+include_exercise <- function(id, show_answer = getOption("show_exercise", TRUE),
+                             directory = "Exercises/",
+                             format = ifelse(knitr::is_latex_output(), "latex", "html")) {
   content <- readLines(paste0(directory, id, ".Rmd"))
   yaml_stuff <- get_yaml_header(content)
   content <- kill_yaml_header(content)
@@ -23,7 +25,12 @@ include_exercise <- function(id, show_answer = getOption("show_exercise", TRUE),
                     ">> \\2",
                     content, perl = TRUE)
   }
-  knitr::knit(text = content)
+
+  res <-
+    if (format == "html") knitr::knit(text = content)
+    else paste(content, collapse = "\n")
+
+  res
 }
 
 kill_answer_block <- function(str) {

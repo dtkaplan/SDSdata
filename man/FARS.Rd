@@ -4,7 +4,7 @@
 \name{FARS}
 \alias{FARS}
 \title{Annual summaries concerning motor-vehicle related fatalities in the US#'}
-\format{A data.frame object with one row year from 1994 to 2016
+\format{A data.frame object with one row per year from 1994 to 2016
 \itemize{
 \item \code{year}: The year covered by the summary
 \item \code{crashes} the number of incidents in that year

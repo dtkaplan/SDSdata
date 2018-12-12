@@ -6,6 +6,7 @@
 #' @export
 sds_setup <- function(...) {
   library(SDSdata)
+  library(MASS)
   library(tufte)
   library(mosaic)
   library(mosaicCore)
@@ -13,7 +14,6 @@ sds_setup <- function(...) {
   library(NHANES)
   library(ggformula)
   library(quickDAG)
-  library(MASS)
   library(rpart)
   library(randomForest)
   library(kernlab)

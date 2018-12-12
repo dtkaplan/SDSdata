@@ -4,7 +4,7 @@
 #'
 #' @usage data(FARS)
 #'
-#' @format A data.frame object with one row year from 1994 to 2016
+#' @format A data.frame object with one row per year from 1994 to 2016
 #'
 #' - `year`: The year covered by the summary
 #' - `crashes` the number of incidents in that year

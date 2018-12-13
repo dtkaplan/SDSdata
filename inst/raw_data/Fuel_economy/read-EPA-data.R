@@ -9,38 +9,38 @@ Cars = readxl::read_excel("inst/raw_data/Fuel_economy/Fuel_economy-2019.xlsx")
 foo <-
   Cars %>%
   dplyr::select(
-                mpg_city = "City Unrd Adj FE - Conventional Fuel",
-                mpg_hwy = "Hwy Unrd Adj FE - Conventional Fuel",
-                mpg_comb = "Comb Unrd Adj FE - Conventional Fuel",
-                CO2city = "City CO2 Rounded Adjusted",
-                CO2hwy = "Hwy CO2 Rounded Adjusted",
-                CO2combined = "Comb CO2 Rounded Adjusted (as shown on FE Label)",
-                power = "Rated Motor Gen Power (kW)",
-                model_year = "Model Year",
+    mpg_city = "City Unrd Adj FE - Conventional Fuel",
+    mpg_hwy = "Hwy Unrd Adj FE - Conventional Fuel",
+    mpg_comb = "Comb Unrd Adj FE - Conventional Fuel",
+    CO2city = "City CO2 Rounded Adjusted",
+    CO2hwy = "Hwy CO2 Rounded Adjusted",
+    CO2combined = "Comb CO2 Rounded Adjusted (as shown on FE Label)",
+    power = "Rated Motor Gen Power (kW)",
+    model_year = "Model Year",
     class = "Carline Class Desc",
-         valves_exhaust = "Exhaust Valves Per Cyl",
-         valves_intake = "Intake Valves Per Cyl",
-                  start_stop = "Stop/Start System (Engine Management System)  Description",
-         cyl_deact = "Cyl Deact?",
-         vol_passengers2D = "2Dr Pass Vol",
-         vol_passengers4D = "4Dr Pass Vol",
-         vol_passengersH = "Htchbk Pass Vol",
-         vol_luggage2D = "2Dr Lugg Vol",
-         vol_luggage4D = "4Dr Lugg Vol",
-         vol_luggageH = "Htchbk Lugg Vol",
-         fuel = "Fuel Usage  - Conventional Fuel",
-         drive = "Drive Desc",
-         n_gears = "# Gears",
-         n_cyl = "# Cyl",
-         displacement = "Eng Displ",
-         transmission = "Trans",
-         lockup_torque_converter = "Lockup Torque Converter",
-         air_aspiration = "Air Aspiration Method Desc",
+    valves_exhaust = "Exhaust Valves Per Cyl",
+    valves_intake = "Intake Valves Per Cyl",
+    start_stop = "Stop/Start System (Engine Management System)  Description",
+    cyl_deact = "Cyl Deact?",
+    vol_passengers2D = "2Dr Pass Vol",
+    vol_passengers4D = "4Dr Pass Vol",
+    vol_passengersH = "Htchbk Pass Vol",
+    vol_luggage2D = "2Dr Lugg Vol",
+    vol_luggage4D = "4Dr Lugg Vol",
+    vol_luggageH = "Htchbk Lugg Vol",
+    fuel = "Fuel Usage  - Conventional Fuel",
+    drive = "Drive Desc",
+    n_gears = "# Gears",
+    n_cyl = "# Cyl",
+    displacement = "Eng Displ",
+    transmission = "Trans",
+    lockup_torque_converter = "Lockup Torque Converter",
+    air_aspiration = "Air Aspiration Method Desc",
 
-         manufacturer = "Verify Mfr Cd",
-         division = "Division",
-         EPA_fuel_cost = "Annual Fuel1 Cost - Conventional Fuel",
-         model = "Carline") %>%
+    manufacturer = "Mfr Name",
+    division = "Division",
+    EPA_fuel_cost = "Annual Fuel1 Cost - Conventional Fuel",
+    model = "Carline") %>%
   mutate(row = row_number())
 foo <- foo %>%
   mutate(vol_passenger = ifelse(is.na(vol_passengers2D),
@@ -66,5 +66,5 @@ MPG_doors <- Cars %>% dplyr::select(`Mfr Name`, Carline, `2Dr Pass Vol`, `4Dr Pa
                 `2Dr Lugg Vol`, `4Dr Lugg Vol`, `Htchbk Lugg Vol`) %>%
   filter(!(is.na(`2Dr Pass Vol`) & is.na(`4Dr Pass Vol`))) %>%
   group_by(`Mfr Name`) %>%
-  filter(row_number() == 1) %>%
+  filter(row_number() <= 2 | !is.na(`Htchbk Lugg Vol`)) %>%
   arrange(`Mfr Name`)

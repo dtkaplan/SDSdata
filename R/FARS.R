@@ -10,7 +10,7 @@
 #' - `crashes` the number of incidents in that year
 #' - `drivers` the number of drivers killed in those incidents
 #' - `passengers` the number of passengers killed in those incidents
-#' - `unkown` vehicle occupants killed whose status as driver or passenger is unknown
+#' - `unknown` vehicle occupants killed whose status as driver or passenger is unknown
 #' - `motorcyclists` the number of motorcyclists killed in those incidents
 #' - `pedestrians` the number of pedestrians killed in those incidentss
 #' - `pedalcyclists` the number of non-motorized cyclist deaths

@@ -9,13 +9,25 @@ Cars = readxl::read_excel("inst/raw_data/Fuel_economy/Fuel_economy-2019.xlsx")
 foo <-
   Cars %>%
   dplyr::select(
+    fuel_year = 1, # placeholder. See mutate below.
+    CO2_year = 2,  # ditto
+    vol_passenger = 3, #placeholder
+    vol_luggage = 4, # placeholder
+    hybrid = "Batt Charger Type Desc",
+    manufacturer = "Mfr Name",
+    model = "Carline",
+    division = "Division",
+    displacement = "Eng Displ",
+    transmission = "Trans",
     mpg_city = "City Unrd Adj FE - Conventional Fuel",
     mpg_hwy = "Hwy Unrd Adj FE - Conventional Fuel",
     mpg_comb = "Comb Unrd Adj FE - Conventional Fuel",
     CO2city = "City CO2 Rounded Adjusted",
     CO2hwy = "Hwy CO2 Rounded Adjusted",
     CO2combined = "Comb CO2 Rounded Adjusted (as shown on FE Label)",
-    power = "Rated Motor Gen Power (kW)",
+
+    regen = "Regen Braking Type, If Other",
+    # power = "Rated Motor Gen Power (kW)",
     model_year = "Model Year",
     class = "Carline Class Desc",
     valves_exhaust = "Exhaust Valves Per Cyl",
@@ -32,17 +44,17 @@ foo <-
     drive = "Drive Desc",
     n_gears = "# Gears",
     n_cyl = "# Cyl",
-    displacement = "Eng Displ",
-    transmission = "Trans",
+
     lockup_torque_converter = "Lockup Torque Converter",
     air_aspiration = "Air Aspiration Method Desc",
 
-    manufacturer = "Mfr Name",
-    division = "Division",
+
     EPA_fuel_cost = "Annual Fuel1 Cost - Conventional Fuel",
-    model = "Carline") %>%
+    ) %>%
   mutate(row = row_number())
 foo <- foo %>%
+  mutate(CO2_year = 10 * CO2combined) %>% #kg per 10,000 miles
+  mutate(fuel_year = 10000 / mpg_comb) %>%
   mutate(vol_passenger = ifelse(is.na(vol_passengers2D),
                                 ifelse(is.na(vol_passengers4D),
                                        vol_passengersH, vol_passengers4D),
@@ -53,9 +65,12 @@ foo <- foo %>%
                                 vol_luggage2D)) %>%
   mutate(doors = ifelse(!is.na(vol_passengers2D), 2,
                         ifelse(!is.na(vol_passengers4D), 4, NA))) %>%
-  mutate(hatchback = !is.na(vol_passengersH))
-
-MPG <- foo
+  mutate(hatchback = !is.na(vol_passengersH),
+         hybrid = ifelse(is.na(hybrid), "not", "hybrid"))
+first_few <- c("manufacturer", "division", "model", "fuel_year", "CO2_year",
+              "hybrid", "class", "doors", "vol_passenger", "vol_luggage", "displacement")
+remaining <- setdiff(names(foo), first_few)
+MPG <- foo[c(first_few, remaining)]
 save(MPG, file = "data/MPG.rda")
 # Add doors to be 2, 4 and hatch to be Y/N. Then you can look at the fuel economy as
 # a function of the number of doors, which is likely correlated with the overall fuel economy

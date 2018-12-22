@@ -1,0 +1,36 @@
+---
+chapter: "tidy data"
+author: "Daniel Kaplan"
+date: 2018-12-07 
+version: 0.1
+topics: [untidy, handout, third]
+id: bear-ride-pants 
+---
+
+```{r bear-ride-pants-default, include = FALSE}
+SDSdata::sds_setup()
+```
+
+The US Department of Transportation has a program called the Fatality Analysis Reporting System. FARS has a web site which publishes data. Figure \@ref(fig:bear-ride-pants-1) shows partial screen shot of their web page.
+
+```{r bear-ride-pants-1, echo = FALSE, fig.cap = "(ref:bear-ride-pants-1-cap)"}
+knitr::include_graphics("images/fars-1.png")
+```
+
+(ref:bear-ride-pants-1-cap) National statistics from the US on motor0-vehicle accident-related fatalities. Source: <https://www-fars.nhtsa.dot.gov/Main/index.aspx>. 
+
+For several reasons, the table is not in tidy form.
+
+1. Some of the rows serve as headers for the next several rows, but don't contain any data. Identify several of those headers. -A- "Motor vehicle traffic crashes", "Traffic crash fatalities", "Vehicle occupants", "Non-motorists", "Other national statistics", "National rates: fatalities"
+
+2. In tidy data, all the entries in a column should describe the same kind of quantity. You can see that all of the columns contain numbers. But the numbers are not all the same kind of quantity. Referring to the 2016 column: 
+    (a) What kind of thing is the number 34,439? -A- A number of crashes
+    (b) What kind of thing is 18,610? -A- A  number of drivers
+    (c) What kind of thing is 1.18? -A- A rate: fatalities per 100-million miles.
+
+3. In tidy data, there is a definite unit of observation that is the same kind of thing for every row. Give an example of two rows that are not the same kind of thing. -A- For example,  "Registered vehicles" and "Licensed drivers". The first is a count of cars,  the second a count of drivers.
+
+4. Identify a few rows that are summaries of other rows. Such summaries are not themselves a unit of observation. -A- "Sub Total1", "Sub Total2",  "Total**"
+
+
+

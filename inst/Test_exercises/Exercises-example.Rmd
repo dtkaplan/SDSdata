@@ -1,0 +1,37 @@
+---
+title: "Exercises example"
+author: "D. Kaplan"
+date: "12/22/2018"
+output: 
+  html_document: 
+    keep_md: yes
+  pdf_document: 
+    keep_tex: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+SDSdata::sds_setup()
+show_answer = TRUE
+verbose = TRUE
+format = ifelse(knitr::is_latex_output(), "latex", "html")
+```
+
+Procedure:
+
+- The `include_exercise()` function translates the problem Rmd into markdown
+    - If output is html, you're done at this point and you just need to set the CSS.
+    - If output is postscript, **ignore** the pdf file and start with the **tex** intermediate.
+         - In the tex intermediate,  substitute the START-ANSWER stuff into tex commands.
+         - Recompile the modified tex file to PDF.
+         
+Write a function that takes a data-frame of problem files and corresponding names and produces
+a complete sequence of data to include.
+
+FIGURE OUT HOW TO INCLUDE THE CSS for the exercise answers in this file.
+         
+## Chapter 1: Data
+
+`r include_exercise("beech-run-mug", prob_name = "Problem 2.2", directory = ".", show_answer = show_answer, format = format, verbose = TRUE)`
+
+

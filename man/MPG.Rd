@@ -10,21 +10,24 @@ of automobile or light truck sold in the US.
 \item manufacturer: name of company making the vehicle
 \item division: name of the company division making the vehicle
 \item model: vehicle model name
+\item fuel_year: fuel consumed in 10,000 miles (roughly 1 year.)
+\item CO2_year: Carbon dioxide produced per year, in kilograms. 10,000 miles of driving
+is taken to represent a year. Note, Carbon-per-year (without the oxygen) is roughly one-quarter the mass of CO2-per-year.
+\item hybrid: whether the car is a hybrid
 \item class: the type of vehicle, e.g. midsize, compact, large, SUV
+\item vol_passenger: volume for passengers (cubic feet)
+\item vol_luggage: volume for luggage (cubic feet)
+\item doors: number of passenger doors
 \item mpg_city: Estimated fuel consumption in city driving (miles per gallon)
 \item mpg_hwy: like \code{mpg_city} but for highway driving
 \item mpg_comb: like \code{mpg_city} but for a standard combination of city and highway driving
 \item EPA_fuel_cost: Annual fuel cost using a standard price for gas and a standard miles per year of driving.
 \item valves_exhaust: how many exhaust valves per cylinder
 \item valves_intake: how many air intake valves per cylinder
-\item CO2city: estimate of carbon-dioxide production per mile in city driving
+\item CO2city: estimate of carbon-dioxide (grams/mile) production per mile in city driving.
 \item CO2hwy: like \code{CO2city} but for highway driving
 \item CO2combined: like \code{CO2city} but for a standard mixture of city and highway driving
-\item vol_passenger: volume for passengers (cubic feet)
-\item vol_luggage: volume for luggage (cubic feet)
-\item doors: number of passenger doors
 \item hatchback: is there a hatchback rear door
-\item power: rated engine power in kW (1 kW = 1.341 hp)
 \item start_stop: does the vehicle have a system to stop the engine when idling
 \item cyl_deact: are cylinders in the engine deactivated when power demand warrants
 \item fuel: the kind of fuel used.
@@ -36,6 +39,7 @@ of automobile or light truck sold in the US.
 \item DU = diesel (ultra low sulfur)
 }
 \item drive: type of drive, e.g. front-wheel, 4-wheel, ...
+\item regen: wheels with regenerative breaking (for hybrids)
 \item n_gears: number of transmission gears
 \item n_cyl: number of engine cylinders
 \item displacement: engine displacement (liters)
@@ -43,8 +47,10 @@ of automobile or light truck sold in the US.
 \itemize{
 \item A = automatic,
 \item M = manual,
+\item AM  = automated manual,
 \item AM = automated manual (paddles),
-\item CVT = continuously variable, SCV = continuously variable with selection paddles,
+\item CVT = continuously variable,
+\item SCV = continuously variable with selection paddles,
 \item SA = semi-automatic
 }
 \item lockup_torque_converter:

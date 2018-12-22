@@ -1,0 +1,73 @@
+---
+chapter: "stratification"
+author: "Daniel Kaplan"
+date: 2018-12-19 
+version: 0.1
+depends: fish-dive-plant
+topics: [CO2, second, third]
+id: beech-run-mug 
+output: 
+  pdf_document: 
+    keep_tex: yes
+---
+
+(ref:beech-run-mug) Exercise in file beech-run-mug
+
+```{r beech-run-mug-default, include = FALSE}
+SDSdata::sds_setup()
+MPG_passenger <- 
+  MPG %>%
+  filter(!is.na(vol_passenger)) 
+```
+
+TITLE GOES HERE: \@ref(fish-dive-plant) involved a comparison between hybrid and non-hybrid cars.
+
+
+
+
+```{r beech-run-mug-1, echo = FALSE}
+P <- MPG_passenger %>% 
+  filter(vol_passenger > 60) %>%
+  gf_point(displacement ~ vol_passenger, data = ., 
+           alpha = 0.5) %>%
+  gf_lims(y = c(0,NA), x = c(60,120)) %>%
+  gf_labs(y = "Engine displacement (liters)", x = "Passenger volume (cubic feet)", title = "2019 model-year vehicles")
+P
+```
+
+1. Divide the horizontal axis into, strata: <70, 70 to 80, 80 to 90, and so on. 
+    a. What is a prediction interval on displacement for the 70 to 80 category?
+    b. What is a prediction interval on displacement for the 100 to 110 category?
+    
+<!--answer-start-->    
+```{r beech-run-mug-2, echo = FALSE}
+Stats <-
+  MPG_passenger %>%
+  mutate(group = cut(vol_passenger, breaks = c(60,70,80,90,100,110,120))) %>%
+  df_stats(displacement ~ group, data = ., coverage()) %>%
+  mutate(midpoint = c(65, 75, 85, 95, 105, 115))
+P %>%
+  gf_errorbar(lower + upper ~ midpoint, data = Stats, size = 2)
+```
+<!--answer-end-->    
+
+2. Comparing the 70 to 80 and the 100 to 110 cubic feet strata:
+    a. how does the engine displacement vary? -A- The prediction intervals are practically identical.
+    b. Is there a strong relationship between passenger volume and engine displacement? -A- Since the prediction intervals don't vary, passenger volume doesn't seem to be related to displacement. 
+    
+<!--answer-start-->
+
+OK. This is the answer text.
+
+This is a block of answer text. This is a block of answer text.
+
+```{r}
+gf_point(mpg ~ hp, data = mtcars)
+```
+<!--answer-end-->
+    
+3. Consider the vehicles at the extremes of passenger volume, either very small (< 70) or very large (> 110). 
+    a. Are these extreme vehicles systematically different in displacement than the large majority of vehicles with passenger volumes between 70 and 110 cubic feet? -A- Yes. Both very small and very large passenger-volume vehicles tend to have higher displacements than the vehicles in the middle.
+    b. Are the very large and very small vehicles similar or different from each other in terms of displacement? Give a common-sense explanation for the pattern. -A- Both the very small and the very large passenger-volume vehicles are built for special purposes. The very small vehicles are sports cars, which demand a high engine power and therefore high displacement. The very large vehicles are meant to carry large cargos or tow large loads. This also demands relatively high engine power.
+
+

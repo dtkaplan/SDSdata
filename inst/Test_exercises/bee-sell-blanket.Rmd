@@ -1,0 +1,43 @@
+---
+chapter: "simple models"
+author: "Daniel Kaplan"
+date: 2018-11-30 
+version: 0.1
+topics: [coverage interval, graphics]
+id: bee-sell-blanket 
+---
+
+```{r bee-sell-blanket-default, include = FALSE}
+SDSdata::sds_setup()
+```
+
+TITLE GOES HERE: The three graphs below show the distribution of weights broken down by sex. The violin layer is the same in each graph. Each graph has a coverage interval at one of these levels: 25% 50%, 80%, 95%. Which graph has which coverage interval? Which of the listed coverage intervals is not shown in any graph?
+
+
+
+```{r bee-sell-blanket-1, echo = FALSE, fig.show = "hold", out.width = "33%"}
+Dat <- NHANES %>%
+  dplyr::select(Weight, Smoke100, Gender) %>%
+  na.omit() 
+Intervals <- df_stats(Weight ~ Gender, data = Dat, 
+                      fifty = coverage(0.50), eighty = coverage(0.80), ninetyfive = coverage(0.95))
+P <- gf_violin(Weight ~ Gender, data = Dat, alpha = 0.2, fill = ~ Gender, color = NA) %>%
+  gf_theme(legend.position="none",axis.text = element_text(size = 20), 
+           plot.title = element_text(size = 30)) %>%
+  gf_labs(y = "Weight (lbs)", x = "")
+P %>%  
+  gf_errorbar(eighty_lower + eighty_upper ~ Gender, 
+              alpha = 1, size = 2, color = ~ Gender, data = Intervals, width = 0.2) %>%
+  gf_labs(title = "(a)")
+
+P %>%  
+  gf_errorbar(fifty_lower + fifty_upper ~ Gender, 
+              alpha = 1, size = 2, color = ~ Gender, data = Intervals, width = 0.2) %>%
+  gf_labs(title = "(b)")
+P %>%  
+  gf_errorbar(ninetyfive_lower + ninetyfive_upper ~ Gender, 
+              alpha = 1, size = 2, color = ~ Gender, data = Intervals, width = 0.2) %>%
+  gf_labs(title = "(c)")
+```
+
+-A- Graph (a) is 80%; Graph (b) is 50%; Graph (c) is 95%. There is no 25% interval shown. If there were, it would fit well within the 50% interval.

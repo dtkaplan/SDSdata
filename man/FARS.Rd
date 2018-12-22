@@ -10,7 +10,7 @@
 \item \code{crashes} the number of incidents in that year
 \item \code{drivers} the number of drivers killed in those incidents
 \item \code{passengers} the number of passengers killed in those incidents
-\item \code{unkown} vehicle occupants killed whose status as driver or passenger is unknown
+\item \code{unknown} vehicle occupants killed whose status as driver or passenger is unknown
 \item \code{motorcyclists} the number of motorcyclists killed in those incidents
 \item \code{pedestrians} the number of pedestrians killed in those incidentss
 \item \code{pedalcyclists} the number of non-motorized cyclist deaths

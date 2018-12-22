@@ -8,29 +8,88 @@
 #'
 #' @param id the unique ID of the exercise file. Don't include the file type suffix ".Rmd" in the id.
 #' @param directory the directory where the exercise file is to be found
+#' @param verbose Include the YAML information
+#' @param prob_name Character string naming the problem, e.g. `"Prob 1.3`"
 #' @param show_answer if TRUE, include the answer comments from the file.
+#'
+#' @details
+#' When output is in html, use the `answer-fragment` class in CSS to format
+#' the answers.
+#'
+#' @examples
+#' the_testing_dir <- system.file("Test_exercises", package = "SDSdata")
+#' include_exercise("beech-run-mug", directory = the_testing_dir, format = "latex")
 #'
 #' @export
 include_exercise <- function(id, show_answer = getOption("show_exercise", TRUE),
-                             directory = "Exercises/",
+                             verbose = TRUE,
+                             directory = "Exercises",
+                             prob_name = "Problem XX",
                              format = ifelse(knitr::is_latex_output(), "latex", "html")) {
-  content <- readLines(paste0(directory, id, ".Rmd"))
+  content <- readLines(paste0(directory, "/", id, ".Rmd"))
   yaml_stuff <- get_yaml_header(content)
   content <- kill_yaml_header(content)
   if ( ! show_answer) { # delete the answer comments}
     content <- gsub("-A-.+$", "", content, perl = TRUE)
     content <- kill_answer_block(content)
-  } else {
-    content <- gsub("-A-([[:space:]]*)(.*)$",
-                    ">> \\2",
-                    content, perl = TRUE)
   }
 
-  res <-
-    if (format == "html") knitr::knit(text = content)
-    else paste(content, collapse = "\n")
+  # replace the answer markup with the appropriate latex/html constructs.
+  inline_pattern <- "-A-([[:space:]]*)(.*)"
+  answer_start_pattern <- "<\\!\\-\\-answer\\-start\\-\\->"
+  answer_end_pattern <- "<\\!\\-\\-answer\\-end\\-\\->"
+  # Fill in the problem name.
+  content <- gsub("(\\(ref:.*\\)) Exercise in file .*$",
+                  paste("\\1", prob_name),
+                  content, perl = TRUE)
+  prob_markup <- glue::glue("**{prob_name}** ")
+  if (format == "latex") {
+    # Can't use HTML markup because it will be deleted
+    content <- gsub(inline_pattern,
+                    "INLINE-ANSWER-START\\2INLINE-ANSWER-END",
+                    content, perl = TRUE)
+    content <- gsub(answer_start_pattern, "BLOCK-ANSWER-START", content)
+    content <- gsub(answer_end_pattern, "BLOCK-ANSWER-END", content)
+  }  else if (format == "html") {
+    content <- gsub("-A-([[:space:]]*)(.*)$",
+                    "<span class = 'answer-fragment'> \\2 </span>",
+                    content, perl = TRUE)
+    content <- gsub(answer_start_pattern,
+                    "<div class='answer-fragment'>",
+                    content, fixed = TRUE)
 
-  res
+    content <- gsub(answer_end_pattern, "</div>", content,
+                    fixed = TRUE)
+  } else {
+    stop("Unknown output format for problem file.")
+  }
+
+  content <-
+    paste(
+      gsub("TITLE GOES HERE", prob_markup, content),
+      collapse = "\n")
+
+    # if (format == "html") {
+    #   res <- knitr::knit(text = content, rmarkdown::md_document())
+    #   writeLines(res, con = "testing.md")
+    # } else if (format == "latex") {
+    #   writeLines(content, con = "testing.Rmd")
+    #   res <- knitr::knit("testing.Rmd", rmarkdown::latex_fragment(keep_tex = TRUE))
+    # }
+
+  if (verbose) {
+    yaml_addon <- paste("\n", paste(paste("*", yaml_stuff, "\n"),collapse = "\n"))
+
+    content <- paste(content, "\n\n", yaml_addon)
+  }
+
+  res <- knitr::knit(text = content, rmarkdown::md_document())
+
+
+  return(res)
+
+  #
+  # res
 }
 
 kill_answer_block <- function(str) {

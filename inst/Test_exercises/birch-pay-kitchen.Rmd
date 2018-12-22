@@ -1,0 +1,28 @@
+---
+chapter: "graphics"
+author: "Daniel Kaplan"
+date: 2018-12-11 
+version: DRAFT
+topics: [heat maps, second, third]
+id: birch-pay-kitchen 
+---
+
+```{r birch-pay-kitchen-default, include = FALSE}
+SDSdata::sds_setup()
+```
+
+Show the heat map of mortality and explain it.
+
+<https://kieranhealy.org/blog/archives/2018/12/04/heatmaps-of-mortality-rates/>
+
+Have them make a heat map where one or both of the variables are categorical (e.g. the 70-cancer data). Show why
+this isn't as effective: sharp discontinuities.
+
+
+```{r birch-pay-kitchen-1, echo = FALSE}
+
+```
+
+```{r birch-pay-kitchen-2, echo = FALSE}
+
+```

@@ -5,15 +5,19 @@
 \title{Insert an exercise from a file}
 \usage{
 include_exercise(id, show_answer = getOption("show_exercise", TRUE),
-  directory = "Exercises/", format = ifelse(knitr::is_latex_output(),
-  "latex", "html"))
+  verbose = TRUE, directory = "Exercises", prob_name = "Problem XX",
+  format = ifelse(knitr::is_latex_output(), "latex", "html"))
 }
 \arguments{
 \item{id}{the unique ID of the exercise file. Don't include the file type suffix ".Rmd" in the id.}
 
 \item{show_answer}{if TRUE, include the answer comments from the file.}
 
+\item{verbose}{Include the YAML information}
+
 \item{directory}{the directory where the exercise file is to be found}
+
+\item{prob_name}{Character string naming the problem, e.g. \code{"Prob 1.3}"}
 }
 \description{
 Each exercise is contained in its own file, with a unique ID. This function
@@ -22,4 +26,12 @@ Typically this will be used to insert the exercise into an Rmd file.
 }
 \details{
 If not specified, argument \code{show_answer} will be read from \code{options("show_answer")}.
+
+When output is in html, use the \code{answer-fragment} class in CSS to format
+the answers.
+}
+\examples{
+the_testing_dir <- system.file("Test_exercises", package = "SDSdata")
+include_exercise("beech-run-mug", directory = the_testing_dir, format = "latex")
+
 }

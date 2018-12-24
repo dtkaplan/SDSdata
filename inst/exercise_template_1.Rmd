@@ -7,11 +7,13 @@ topics: [first, second, third]
 id: 
 ---
 
+(ref:XXAXX) Exercise in file XXAXX
+
 ```{r XXAXX-default, include = FALSE}
 SDSdata::sds_setup()
 ```
 
-This is an example of an exercise file.
+TITLE GOES HERE: Start content here.
 
 
 ```{r XXAXX-1, echo = FALSE}

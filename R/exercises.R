@@ -3,7 +3,6 @@
 #' Each exercise is contained in its own file, with a unique ID. This function
 #' reads the file for that ID, knits the contents, and returns the knitted contents.
 #' Typically this will be used to insert the exercise into an Rmd file.
-#'
 #' If not specified, argument `show_answer` will be read from `options("show_answer")`.
 #'
 #' @param id the unique ID of the exercise file. Don't include the file type suffix ".Rmd" in the id.
@@ -42,14 +41,32 @@ include_exercise <- function(id, show_answer = getOption("show_exercise", TRUE),
   content <- gsub("(\\(ref:.*\\)) Exercise in file .*$",
                   paste("\\1", prob_name),
                   content, perl = TRUE)
-  prob_markup <- glue::glue("**{prob_name}** ")
+
+  # prob_markup <- glue::glue("**{prob_name}** ")
+  # using prob_name instead of prob_markup
+  content <-
+    paste(
+      gsub("TITLE GOES HERE:?", prob_name, content),
+      collapse = "\n")
+
+  content <- knitr::knit(text = content, rmarkdown::md_document())
+
+
+
   if (format == "latex") {
     # Can't use HTML markup because it will be deleted
     content <- gsub(inline_pattern,
-                    "INLINE-ANSWER-START\\2INLINE-ANSWER-END",
+                    "Ans: [\\2] ",
+                    #"INLINE-ANSWER-START\\2INLINE-ANSWER-END",
                     content, perl = TRUE)
-    content <- gsub(answer_start_pattern, "BLOCK-ANSWER-START", content)
-    content <- gsub(answer_end_pattern, "BLOCK-ANSWER-END", content)
+    content <- gsub(answer_start_pattern,
+                    #"\\\\begin{quotation}\\\\em ",
+                    "BLOCK-ANSWER-START",
+                    content)
+    content <- gsub(answer_end_pattern,
+                    #"\\\\end{quotation}",
+                    "BLOCK-ANSWER-END",
+                    content)
   }  else if (format == "html") {
     content <- gsub("-A-([[:space:]]*)(.*)$",
                     "<span class = 'answer-fragment'> \\2 </span>",
@@ -64,10 +81,7 @@ include_exercise <- function(id, show_answer = getOption("show_exercise", TRUE),
     stop("Unknown output format for problem file.")
   }
 
-  content <-
-    paste(
-      gsub("TITLE GOES HERE", prob_markup, content),
-      collapse = "\n")
+
 
     # if (format == "html") {
     #   res <- knitr::knit(text = content, rmarkdown::md_document())
@@ -78,15 +92,15 @@ include_exercise <- function(id, show_answer = getOption("show_exercise", TRUE),
     # }
 
   if (verbose) {
-    yaml_addon <- paste("\n", paste(paste("*", yaml_stuff, "\n"),collapse = "\n"))
+    yaml_stuff <- gsub("\\[|\\]", "", yaml_stuff)
+    keepers <- grep("id|topics|chapter|version|depends", yaml_stuff)
+    yaml_addon <- paste0(paste0("* ", yaml_stuff[keepers]), collapse = "\n")
 
-    content <- paste(content, "\n\n", yaml_addon)
+    content <- paste0(content, "\n\n", yaml_addon)
   }
 
-  res <- knitr::knit(text = content, rmarkdown::md_document())
 
-
-  return(res)
+  return(paste(content, "\n\n"))
 
   #
   # res

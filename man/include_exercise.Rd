@@ -23,10 +23,9 @@ include_exercise(id, show_answer = getOption("show_exercise", TRUE),
 Each exercise is contained in its own file, with a unique ID. This function
 reads the file for that ID, knits the contents, and returns the knitted contents.
 Typically this will be used to insert the exercise into an Rmd file.
+If not specified, argument \code{show_answer} will be read from \code{options("show_answer")}.
 }
 \details{
-If not specified, argument \code{show_answer} will be read from \code{options("show_answer")}.
-
 When output is in html, use the \code{answer-fragment} class in CSS to format
 the answers.
 }

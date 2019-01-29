@@ -17,7 +17,7 @@ include_exercise(id, show_answer = getOption("show_exercise", TRUE),
 
 \item{directory}{the directory where the exercise file is to be found}
 
-\item{prob_name}{Character string naming the problem, e.g. \code{"Prob 1.3}"}
+\item{prob_name}{Character string naming the problem, e.g. \code{"Prob 1.3"}}
 }
 \description{
 Each exercise is contained in its own file, with a unique ID. This function

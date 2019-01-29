@@ -8,7 +8,7 @@
 #' @param id the unique ID of the exercise file. Don't include the file type suffix ".Rmd" in the id.
 #' @param directory the directory where the exercise file is to be found
 #' @param verbose Include the YAML information
-#' @param prob_name Character string naming the problem, e.g. `"Prob 1.3`"
+#' @param prob_name Character string naming the problem, e.g. `"Prob 1.3"`
 #' @param show_answer if TRUE, include the answer comments from the file.
 #'
 #' @details

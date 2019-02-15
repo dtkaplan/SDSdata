@@ -13,6 +13,7 @@
 \item \code{age}: The crewman's age, in years
 \item \code{boat}: For survivors, the lifeboat from which they were picked up
 \item \code{body}: For those whose body was recovered, the number assigned to the body. Missing for survivors or those whose body was never recovered.
+\item \code{class}: Always "crew". This if for compatibility with \code{Titanic_passengers}
 }}
 \source{
 Scraped from \url{https://www.encyclopedia-titanica.org/titanic-passenger-lists/}.

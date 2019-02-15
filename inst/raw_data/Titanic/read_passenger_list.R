@@ -47,6 +47,8 @@ Titanic_crew <- tibble::tibble(crew = squad, job = job, age = ages, boat = boat,
 Titanic_crew <- Titanic_crew[!to_be_dropped,]
 Titanic_crew$sex <- "male"
 Titanic_crew$survived <- as.numeric(!is.na(Titanic_crew$boat))
+Titanic_crew$class <- "crew"
+
 save(Titanic_passengers, file = "data/Titanic_passengers.rda")
 save(Titanic_crew, file = "data/Titanic_crew.rda")
 

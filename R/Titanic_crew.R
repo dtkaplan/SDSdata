@@ -17,6 +17,7 @@
 #' - `age`: The crewman's age, in years
 #' - `boat`: For survivors, the lifeboat from which they were picked up
 #' - `body`: For those whose body was recovered, the number assigned to the body. Missing for survivors or those whose body was never recovered.
+#' - `class`: Always "crew". This if for compatibility with `Titanic_passengers`
 #'
 #' @keywords datasets
 #'

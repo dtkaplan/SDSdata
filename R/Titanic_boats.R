@@ -1,0 +1,30 @@
+#' Lifeboats carried by the Titanic
+#'
+#' @docType data
+#'
+#' @details `Titanic_boats` describes the capacity, location, and launch time of the
+#' lifeboats on RMS Titanic. The article at <https://en.wikipedia.org/wiki/Lifeboats_of_the_RMS_Titanic>
+#' gives many details about the launch and passengers placed on  each boat. To put the
+#' boat launch times in context, note that the Titanic struck the iceberg at 12:40 pm on
+#' 14 April. The first lifeboat was launched about an hour later, in the early
+#' hours of 15 April. The collapsible boats were washed off Titanic as the ship sank.
+#' The ship disappeared below the surface at 2:20 am.
+#'
+#' @usage data(Titanic_boats)
+#'
+#' @format  `Titanic_boats`: A data.frame object with one row for each of the twenty lifeboats
+#' on the Titanic
+#'
+#'
+#' - `boat`: The boat's identifier. Boats A, B, C, and D were "collapsible boats" (rafts).
+#' - `capacity`: The number of people the boats were rated for.
+#' - `side`: Starboard or port.
+#' - `position`: Where the boat was positioned on the ship: bow or stern (that is, front or back).
+#' - `launch_order`: The boat's position in the launch sequence: 1:20
+#' - `launch_time`: The time at which the boat was launched.
+#'
+#' @keywords datasets
+#'
+#' @source  Scraped from <https://en.wikipedia.org/wiki/Lifeboats_of_the_RMS_Titanic>
+"Titanic_boats"
+

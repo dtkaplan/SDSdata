@@ -1,11 +1,14 @@
-#' Passengers and crew on the Titanic
+#' Passengers and crew on RMS Titanic
 #'
 #' @docType data
 #'
 #' @details The `Titanic_passengers` data frame is a roster of 1309 passengers on the steamship Titanic.
 #' At the time of the sinking, there were approximately 2400 people on board the ship. Of these, approximately
 #' 1330 were passengers, together with approximately 895 crew. The passenger list includes approximately
-#' 42 people who were servants of other passengers.
+#' 42 people who were servants of other passengers. According to many reports, 712 people
+#' survived  the sinking. (See, e.g. <https://www.encyclopedia-titanica.org/titanic-survivors/>.)
+#' The `survived` column,  combining `Titanic_passengers` and `Titanic_crew` lists only 628 survivors. The source
+#' of the  discrepancy is unknown.
 #'
 #' @usage data(Titanic_crew)
 #'
@@ -20,7 +23,8 @@
 #' - `parch`: the number of parents or children travelling with the passenger.
 #' - `fare`: the fare paid for the passenger's ticket, GBP
 #' - `embarked`: where the passenger got on to the Titanic: Southhampton, Cherbourg, Queenstown
-#' - `boat`: the life boat in which the passenger was found
+#' - `boat`: the life boat into which the passenger was first placed.  A handful  of passengers
+#' were transferred from one boat to another. This  variable is the first boat.
 #' - `body`: the number assigned when the body was recovered. Empty for survivors or those whose body was never found.
 #' - `cabin`: the passenger's cabin number
 #' - `ticket`: the passenger's ticket number. (Passengers travelling together might have shared a ticket.)

@@ -3,7 +3,7 @@
 \docType{data}
 \name{Titanic_passengers}
 \alias{Titanic_passengers}
-\title{Passengers and crew on the Titanic}
+\title{Passengers and crew on RMS Titanic}
 \format{\code{Titanic_passengers}: A data.frame object with one row for each passenger
 \itemize{
 \item \code{class}: The passenger's cabin class. Values first, second, or steerage.
@@ -15,7 +15,8 @@ to the nearest integer.
 \item \code{parch}: the number of parents or children travelling with the passenger.
 \item \code{fare}: the fare paid for the passenger's ticket, GBP
 \item \code{embarked}: where the passenger got on to the Titanic: Southhampton, Cherbourg, Queenstown
-\item \code{boat}: the life boat in which the passenger was found
+\item \code{boat}: the life boat into which the passenger was first placed.  A handful  of passengers
+were transferred from one boat to another. This  variable is the first boat.
 \item \code{body}: the number assigned when the body was recovered. Empty for survivors or those whose body was never found.
 \item \code{cabin}: the passenger's cabin number
 \item \code{ticket}: the passenger's ticket number. (Passengers travelling together might have shared a ticket.)
@@ -30,13 +31,16 @@ other potential sources for passenger lists, for instance \url{https://www.encyc
 data(Titanic_crew)
 }
 \description{
-Passengers and crew on the Titanic
+Passengers and crew on RMS Titanic
 }
 \details{
 The \code{Titanic_passengers} data frame is a roster of 1309 passengers on the steamship Titanic.
 At the time of the sinking, there were approximately 2400 people on board the ship. Of these, approximately
 1330 were passengers, together with approximately 895 crew. The passenger list includes approximately
-42 people who were servants of other passengers.
+42 people who were servants of other passengers. According to many reports, 712 people
+survived  the sinking. (See, e.g. \url{https://www.encyclopedia-titanica.org/titanic-survivors/}.)
+The \code{survived} column,  combining \code{Titanic_passengers} and \code{Titanic_crew} lists only 628 survivors. The source
+of the  discrepancy is unknown.
 }
 \seealso{
 Titanic_crew

@@ -32,7 +32,6 @@ include_exercise <- function(id, show_answer = getOption("show_exercise", TRUE),
     content <- gsub("-A-.+$", "", content, perl = TRUE)
     content <- kill_answer_block(content)
   }
-
   # replace the answer markup with the appropriate latex/html constructs.
   inline_pattern <- "-A-([[:space:]]*)(.*)"
   answer_start_pattern <- "<\\!\\-\\-answer\\-start\\-\\->"
@@ -108,6 +107,7 @@ include_exercise <- function(id, show_answer = getOption("show_exercise", TRUE),
 
 kill_answer_block <- function(str) {
    starts <- grep("<\\!\\-\\-answer\\-start\\-\\->", str)
+   if (length(starts) == 0) return(str)
    ends <- grep("<\\!\\-\\-answer\\-end\\-\\->", str)
    if (length(starts) != length(ends) || any(starts >= ends))
      stop("Unmatched answer-block delimiter.")

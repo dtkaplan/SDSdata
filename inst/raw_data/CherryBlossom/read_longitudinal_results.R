@@ -52,7 +52,30 @@ read_1999 <- function(year = 1999) {
                       stringsAsFactors = FALSE)
 
 
-  names <- read_1999()
+  names
 }
 
-# names <-
+# names <- <- read_1999()
+
+# Convert 5:23:41 to seconds
+hhmmss2s <-  function(x) {
+  x <- gsub("[^0-9:]", "", x)
+  three <- strsplit(x, ":", fixed = TRUE)
+  unlist(lapply(three, FUN = function(x) {
+    if (length(x) == 3) sum(parse_number(x) * c(3600, 60, 1))
+    else sum(parse_number(x) * c(60, 1))
+  }))
+}
+
+# Runners with 10 or more records
+foo <- lapply(Cohort_1999,  FUN = function(x) if(is.null(x)) 0 else nrow(x))
+goo <- which(unlist(foo)  > 10)
+Tmp<- bind_rows(Cohort_1999[goo])
+Devoted_runners <- Tmp %>%
+  rename(age  = Age, time = Time, division = Division,
+                           name = Name) %>%
+  filter(  ! grepl("5K",Race)) %>%
+  mutate(year = parse_number(gsub(" .*$", "", Race))) %>%
+  mutate(seconds = hhmmss2s(time)) %>%
+  select(-Race, -unique_id, -Pace)
+save(Devoted_runners, file = "data/Devoted_runners.rda")

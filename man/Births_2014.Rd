@@ -10,7 +10,7 @@
 \item{\code{age_father}} {Father's age at date of birth}
 \item{\code{induced}} {Was labor induced?}
 \item{\code{ventilator}} {Baby put on mechanical ventilator immediately}
-\item{\code{babywt}} {Baby's weight (gm)}
+\item{\code{baby_wt}} {Baby's weight (gm)}
 \item{\code{gestation}} {Length of gestation}
 \item{\code{sex}} {Baby's sex}
 \item{\code{plurality}} {Plurality of birth: 2 = twins, 3 = triplets, ...}

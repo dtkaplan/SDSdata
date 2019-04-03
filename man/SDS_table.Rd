@@ -4,9 +4,9 @@
 \alias{sds_table}
 \title{Format data frames nicely for SDS book}
 \usage{
-sds_table(data, show_n = 6L, nrows = nrow(data), footnote = NULL,
-  format = ifelse(knitr::is_latex_output(), "latex", "html"),
-  caption = NULL, align = NULL,
+sds_table(data, show_n = 6L, nrows = nrow(data), row.names = FALSE,
+  footnote = NULL, format = ifelse(knitr::is_latex_output(), "latex",
+  "html"), caption = NULL, align = NULL,
   in_margin = knitr::opts_current$get("in_margin"),
   label = knitr::opts_current$get("label"), ...)
 }
@@ -16,6 +16,8 @@ sds_table(data, show_n = 6L, nrows = nrow(data), footnote = NULL,
 \item{show_n}{how many lines to display (default 6. Use \code{Inf} for all rows.)}
 
 \item{nrows}{an integer specifying how many rows the from the data frame should be displayed in the footnote. Set to \code{Inf} to suppress footnote.}
+
+\item{row.names}{whether to show the rownames in the table (def: FALSE)}
 
 \item{footnote}{character string to be placed at the bottom of the table in place of the usual "... and so on for __ rows."}
 

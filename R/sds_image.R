@@ -21,7 +21,7 @@ sds_image <- function(img, width=NULL, height=NULL, lwidth = width, lheight = he
   if (format == "html") {
     wstring <- ifelse(is.null(width), "", sprintf("width='%s%%'", as.character(width)))
     hstring <- ifelse(is.null(height), "", sprintf("height='%s%%'", as.character(height)))
-    sprintf("<img src=%s %s %s>", img, wstring, hstring)
+    sprintf("<img src='%s' %s %s>", img, wstring, hstring)
   } else {
     wstring <- ifelse(is.null(lwidth), "0.5", as.character(lwidth/100))
     sprintf("\\includegraphics[width=%s\\textwidth]{%s}", wstring, img)

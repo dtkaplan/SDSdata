@@ -13,7 +13,7 @@ sds_setup <- function(...) {
   library(mosaicModel)
   library(NHANES)
   library(ggformula)
-  library(quickDAG)
+  #library(quickDAG)
   library(rpart)
   library(randomForest)
   library(kernlab)

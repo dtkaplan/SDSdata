@@ -1,6 +1,3 @@
-# These data were cut-and-pasted from the website <https://www-fars.nhtsa.dot.gov/Main/index.aspx>
-# On Dec 7, 2018
-
 Raw_fatalities <- tibble::tribble(
   ~ bogus,   ~`2016`,   ~`2015`,   ~`2014`,   ~`2013`,   ~`2012`,   ~`2011`,   ~`2010`,   ~`2009`,   ~`2008`,   ~`2007`,   ~`2006`,   ~`2005`,   ~`2004`,   ~`2003`,   ~`2002`,   ~`2001`,   ~`2000`,   ~`1999`,   ~`1998`,   ~`1997`,   ~`1996`,   ~`1995`,   ~`1994`,
   "crashes",   34439,   32539,   30056,   30202,   31006,   29867,   30296,   30862,   34172,   37435,   38648,   39252,   38444,   38477,   38491,   37862,   37526,   37140,   37107,   37324,   37494,   37241,   36254,
@@ -15,13 +12,11 @@ Raw_fatalities <- tibble::tribble(
   "population",  323128,  320897,  318563,  316205,  313998,  311663,  309348,  306772,  304094,  301231,  298380,  295517,  292805,  290108,  287625,  284969,  282162,  272691,  270248,  267784,  265229,  262803,  260327,
   "registered_vehicles",  288034,  281312,  274805,  269294,  265647,  265043,  257312,  258958,  259360,  257472,  251415,  245628,  237949,  230633,  225685,  221230,  217028,  212685,  208076,  203568,  201631,  197065,  192497,
   "licensed_drivers",  221712,  218084,  214092,  212160,  211815,  211875,  210115,  209618,  208321,  205742,  202810,  200549,  198889,  196166,  194602,  191276,  190625,  187170,  184861,  182709,  179539,  176628,  175403,
-)
+) 
 vnames <- Raw_fatalities[[1]]
-years <- data.frame(years = 2016:1994)
-row.names(Raw_fatalities) <- NULL
-Raw_fatalities <- Raw_fatalities[-1] %>% t() %>% data.frame() %>% bind_cols(years, .)
-#colnames(Raw_fatalities) <-
-FARS <- Raw_fatalities %>%
+years <- data.frame(years = colnames(Raw_fatalities[,-1]) %>% as.character())
+Raw_fatalities <- Raw_fatalities[-1] %>% t() %>% data.frame() %>% bind_cols(years, .) 
+colnames(Raw_fatalities) <- c("years", vnames)
+FARS <- Raw_fatalities[-1,] %>%
   mutate_all(as.numeric)
-names(FARS) <- c("year", vnames)
-save(FARS, file = "FARS.rda")
+names(FARS) <- for_names

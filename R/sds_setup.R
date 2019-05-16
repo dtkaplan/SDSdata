@@ -7,7 +7,7 @@
 sds_setup <- function(...) {
   library(SDSdata)
   library(MASS)
-  library(tufte)
+  #library(tufte)
   library(mosaic)
   library(mosaicCore)
   library(mosaicModel)

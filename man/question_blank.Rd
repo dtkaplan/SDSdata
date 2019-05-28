@@ -4,7 +4,7 @@
 \alias{question_blank}
 \title{Blanks and spaces for student answers in documents}
 \usage{
-question_blank(prompts = "", length = 25, underline = "  .",
+question_blank(prompts = "", length = 3, underline = "  .",
   breaks = 2)
 }
 \arguments{

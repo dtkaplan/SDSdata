@@ -14,8 +14,8 @@ res = list()
 for (k in 1:length(gapminder_files)) {
   file_name <- names(gapminder_files)[k]
   variable_name <- gapminder_files[[k]]
-  The_data <- read_delim(file_name, 
-                         "\t", escape_double = FALSE, trim_ws = TRUE) 
+  The_data <- read_delim(file_name,
+                         "\t", escape_double = FALSE, trim_ws = TRUE)
   names(The_data)[1] <- "country"
   res[[k]] <- foo <- The_data %>%
     tidyr::gather(key=year, value  = !!variable_name, -country)
@@ -28,7 +28,7 @@ for (k in 2:length(res)) {
 Homocides <- All %>% filter(year != "Totalt") %>%
   mutate(year = as.numeric(year))
 
-save(Homocides, file = "Homocides.Rda")
+save(Homocides, file = "Homocides.rda")
 
 
 

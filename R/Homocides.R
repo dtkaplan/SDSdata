@@ -14,6 +14,7 @@
 #' - `year` the year of the observation
 #' - `population` the estimated population
 #' - `total_deaths` the total number of homicides. (Only for years 2002 and 2004.)
+#' - `murders_per_100k` the age-adjusted murder rate per 100,000 people
 #' - `rate_females` the female homocide rate, age adjusted, per 100,000 people
 #' - `rate_males` like `rate_females`
 #' - `rate_over_60` like `rate_females` but gives the rate for people over age 60 (males and females)

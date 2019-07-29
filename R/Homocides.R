@@ -18,7 +18,12 @@
 #' - `rate_males` like `rate_females`
 #' - `rate_over_60` like `rate_females` but gives the rate for people over age 60 (males and females)
 #' - `rate_15_29` like `rate_over_60` but for people aged 15 to 29 years
-#'
+#' - `surface_area` the country's surface area in square kilometers
+#' - `birth_rate` the birth rate: the number of births per 1000 people
+#' - `population_15_19` count of the population aged 15 to 19 years
+#' - `female_15_19` the fraction of the population (%) that is female and aged 15 to 19
+#' - `male_15_19` the fraction of the population (%) that is male and aged 15 to 19
+#' - `youth_unemployment` the fraction of youth (how defined?) that is not in school or employed
 #'
 #' @keywords datasets
 #'

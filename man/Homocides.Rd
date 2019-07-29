@@ -16,6 +16,12 @@ have non-missing data for only a few years.) The unit of observation is a countr
 \item \code{rate_males} like \code{rate_females}
 \item \code{rate_over_60} like \code{rate_females} but gives the rate for people over age 60 (males and females)
 \item \code{rate_15_29} like \code{rate_over_60} but for people aged 15 to 29 years
+\item \code{surface_area} the country's surface area in square kilometers
+\item \code{birth_rate} the birth rate: the number of births per 1000 people
+\item \code{population_15_19} count of the population aged 15 to 19 years
+\item \code{female_15_19} the fraction of the population (%) that is female and aged 15 to 19
+\item \code{male_15_19} the fraction of the population (%) that is male and aged 15 to 19
+\item \code{youth_unemployment} the fraction of youth (how defined?) that is not in school or employed
 }}
 \source{
 The data themselves were scraped from the \href{https://www.gapminder.org/data/}{Gapminder site} on July 25, 2019. Gapminder

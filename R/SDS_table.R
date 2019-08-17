@@ -90,3 +90,11 @@ nice_table <- function(x, options) {
   )
   knitr::asis_output(res) # so it prints as markup
 }
+#' Only works within a document with knitr available
+#' @export
+use_nice_table <- function() {
+
+  registerS3method("knit_print", "tbl", SDSdata::nice_table)
+  registerS3method("knit_print", "tbl_df", SDSdata::nice_table)
+  registerS3method("knit_print", "data.frame", SDSdata::nice_table)
+}

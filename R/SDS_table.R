@@ -74,3 +74,19 @@ sds_table <- function(data, show_n = 6L, nrows = nrow(data),
   }
   res
 }
+
+#' For pretty printing knitr tables
+#' @export
+nice_table <- function(x, options) {
+  res <- do.call(SDSdata::sds_table,
+                 list(data=x,
+                      nrows=ifelse("nrow" %in% names(options),
+                                   options$nrow, nrow(x)),
+                      show_n=ifelse("show_n" %in% names(options),
+                                    options$show_n, 6),
+                      caption = options$caption,
+                      in_margin = options$in_margin
+                 )
+  )
+  knitr::asis_output(res) # so it prints as markup
+}

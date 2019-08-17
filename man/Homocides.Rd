@@ -22,6 +22,7 @@ have non-missing data for only a few years.) The unit of observation is a countr
 \item \code{population_15_19} count of the population aged 15 to 19 years
 \item \code{female_15_19} the fraction of the population (%) that is female and aged 15 to 19
 \item \code{male_15_19} the fraction of the population (%) that is male and aged 15 to 19
+\item \code{male_unemployment} the fraction of the male workforce that is unemployed
 \item \code{youth_unemployment} the fraction of youth (how defined?) that is not in school or employed
 }}
 \source{

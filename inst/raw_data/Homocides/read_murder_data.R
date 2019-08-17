@@ -15,6 +15,7 @@ gapminder_files <- list(`homocide-60+.txt` = "rate_over_60",
                         `population_15_19.txt` = "population_15_19",
                         `female_15_19.txt` = "females_15_19",
                         `male_15_19.txt` = "males_15_19",
+                        `sl_uem_totl_ma_ne_zs.csv` = "male_unemployment",
                         `sl_uem_neet_zs.csv` = "youth_unemployment",
                         `murder_per_100000_people.csv` = "murders_per_100k")
 

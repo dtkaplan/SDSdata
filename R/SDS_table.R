@@ -61,22 +61,27 @@ sds_table <- function(data, show_n = 6L, nrows = nrow(data),
   }
   if (in_margin) {
     if (format == "latex") {
-    res <- gsub("\\\\begin\\{table\\}\\[H\\]", "", res)
-    res <- gsub("\\\\end\\{table\\}", "", res)
-    if (is.null(label)) label <- "bogus-label"
-    res <- paste(sprintf("\\captionof{table}{\\label{tab:%s}%s}\\vspace{1em}",
-                         label,
-                         save_caption), res)
-    return(tufte::margin_note(I(res)))
+      res <- gsub("\\\\begin\\{table\\}\\[H\\]", "", res)
+      res <- gsub("\\\\end\\{table\\}", "", res)
+      if (is.null(label)) label <- "bogus-label"
+      res <- paste(sprintf("\\captionof{table}{\\label{tab:%s}%s}\\vspace{1em}",
+                           label,
+                           save_caption), res)
+      return(margin_note(I(res)))
     } else if (format == "html") {
-      # Don't know how to do this.
+        # Haven't gotten marginal tables to work in html format
+        return(res)
+    } else {
+      return(res)
     }
   }
   res
 }
 
 #' For pretty printing knitr tables
+#'
 #' @export
+#'
 nice_table <- function(x, options) {
   res <- do.call(SDSdata::sds_table,
                  list(data=x,
@@ -90,24 +95,34 @@ nice_table <- function(x, options) {
   )
   knitr::asis_output(res) # so it prints as markup
 }
-#' Only works within a document with knitr available
-#' @export
-use_nice_table <- function() {
 
+# Only works within a document with knitr available
+#'
+#' @export
+#'
+use_nice_table <- function() {
   registerS3method("knit_print", "tbl", SDSdata::nice_table)
   registerS3method("knit_print", "tbl_df", SDSdata::nice_table)
   registerS3method("knit_print", "data.frame", SDSdata::nice_table)
+}
+
+#' Is the document in Tufte format?
+#'
+#' A kluge
+#' since there's no official way to test during compilation)
+#' @export
+
+is_tufte_format <- function() {
+  !is.null(knitr::opts_hooks$get("fig.margin"))
 }
 
 #' A margin note that will work in gitbook or tufte
 #'
 #' @export
 margin_note <- function(text,  icon="[Click to see note.]") {
-  foo <- knitr::opts_hooks$get("fig.margin")
-  if (is.null(foo)){
-    sprintf(
-      "^[%s]", text)
-  } else {
+  if (is_tufte_format()){
     tufte::margin_note(text, icon=icon)
+  } else {
+    sprintf("^[%s]", text)
   }
 }

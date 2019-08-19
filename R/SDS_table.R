@@ -98,3 +98,16 @@ use_nice_table <- function() {
   registerS3method("knit_print", "tbl_df", SDSdata::nice_table)
   registerS3method("knit_print", "data.frame", SDSdata::nice_table)
 }
+
+#' A margin note that will work in gitbook or tufte
+#'
+#' @export
+margin_note <- function(text,  icon="[Click to see note.]") {
+  foo <- knitr::opts_hooks$get("fig.margin")
+  if (is.null(foo)){
+    sprintf(
+      "^[%s]", text)
+  } else {
+    tufte::margin_note(text, icon=icon)
+  }
+}

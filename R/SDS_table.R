@@ -90,7 +90,8 @@ nice_table <- function(x, options) {
                       show_n=ifelse("show_n" %in% names(options),
                                     options$show_n, 6),
                       caption = options$caption,
-                      in_margin = options$in_margin
+                      in_margin = options$in_margin,
+                      label = options$title
                  )
   )
   knitr::asis_output(res) # so it prints as markup
@@ -101,6 +102,7 @@ nice_table <- function(x, options) {
 #' @export
 #'
 use_nice_table <- function() {
+  registerS3method("knit_print", "grouped_df", SDSdata::nice_table)
   registerS3method("knit_print", "tbl", SDSdata::nice_table)
   registerS3method("knit_print", "tbl_df", SDSdata::nice_table)
   registerS3method("knit_print", "data.frame", SDSdata::nice_table)

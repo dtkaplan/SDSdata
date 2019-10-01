@@ -43,8 +43,13 @@ sds_table <- function(data, show_n = 6L, nrows = nrow(data),
   }
   res <-
     knitr::kable(head(data, min(c(nrows, show_n))),
-                 format = format, caption=caption, row.names = row.names, align = align) %>%
-    kableExtra::kable_styling(full_width = FALSE, ...)
+                 format = format, caption=caption,
+                 row.names = row.names, align = align) %>%
+      kableExtra::kable_styling(full_width = FALSE, ...)
+
+    res <- gsub("margin-left: auto;", 'margin-left: 10%;',
+              res, fixed = TRUE) %>%
+      gsub("float: right;", "", .)
 
   if (is.null(footnote) && nrows > show_n) {
       footnote <- sprintf("... and so on for %s rows altogether.", prettyNum(nrows, scientific = FALSE, big.mark = ","))

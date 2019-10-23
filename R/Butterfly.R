@@ -4,7 +4,7 @@
 #'
 #' @docType data
 #'
-#' @usage data(grav)
+#' @usage data(Butterfly)
 #'
 #' @format A data.frame object with one row for each world record and variables
 #'

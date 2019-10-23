@@ -18,7 +18,7 @@
 \href{https://en.wikipedia.org/wiki/World_record_progression_100_metres_butterfly}{Wikipedia}
 }
 \usage{
-data(grav)
+data(Butterfly)
 }
 \description{
 World records in the 100 & 200 m butterfly swim

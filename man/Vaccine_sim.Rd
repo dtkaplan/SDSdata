@@ -4,15 +4,7 @@
 \name{Vaccine_sim}
 \alias{Vaccine_sim}
 \title{Simulated vaccine/flu/mortality data}
-\format{An object of class \code{data.frame} with 10000 rows and 4 columns.}
-\usage{
-Vaccine_sim
-}
-\description{
-These data were generated with a structural causal model. See details.
-}
-\details{
-A data frame object with one row for each (simulated) person:
+\format{A data frame object with one row for each (simulated) person:
 \itemize{
 \item \code{health}: whether the person was in poor health
 \item \code{vaccination} did the person get vaccinated
@@ -20,6 +12,15 @@ A data frame object with one row for each (simulated) person:
 \item \code{mortality}: did the person die
 }
 
+The symbol "o" in the data frame indicates negation. For example, the levels
+of \code{Flu} are \code{"Yes"} and \code{"o"}, which means yes and no.}
+\usage{
+data(Butterfly)
+}
+\description{
+These data were generated with a structural causal model. See details.
+}
+\details{
 The data were generated with
 \code{set.seed(102)}
 
@@ -33,7 +34,7 @@ The data were generated with
 }
 \item \preformatted{     `Health = "Poor", Vaccination = "Received", Flu = "Yes",``
 }
-\item \preformatted{     `Mortality = "Died", samp_n = 10000)`
+\item \preformatted{     `Death = "Died", samp_n = 10000)`
 }
 }
 }

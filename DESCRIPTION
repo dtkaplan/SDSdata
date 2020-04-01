@@ -9,7 +9,8 @@ License: MIT
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.1
-Depends: magrittr
+RoxygenNote: 7.0.2
+Depends: R (>= 3.5.0),
+         magrittr
 Imports: knitr, kableExtra, htmltools, rlang 
 Suggests: testthat

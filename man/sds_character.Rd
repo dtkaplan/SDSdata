@@ -4,8 +4,11 @@
 \alias{sds_character}
 \title{Render a special character in either html or latex as appropriate.}
 \usage{
-sds_character(char, show = FALSE,
-  format = ifelse(knitr::is_latex_output(), "latex", "html"))
+sds_character(
+  char,
+  show = FALSE,
+  format = ifelse(knitr::is_latex_output(), "latex", "html")
+)
 }
 \arguments{
 \item{char}{the character, as a quoted string}

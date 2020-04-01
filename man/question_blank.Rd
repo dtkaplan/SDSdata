@@ -4,8 +4,7 @@
 \alias{question_blank}
 \title{Blanks and spaces for student answers in documents}
 \usage{
-question_blank(prompts = "", length = 3, underline = "  .",
-  breaks = 2)
+question_blank(prompts = "", length = 3, underline = "  .", breaks = 2)
 }
 \arguments{
 \item{prompts}{vector of character strings to prompt the answer}

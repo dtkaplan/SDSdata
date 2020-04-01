@@ -9,7 +9,7 @@ sds_latex(environment, position = c("begin", "end"))
 \arguments{
 \item{environment}{The name of the latex environment, e.g. \code{"fullwidth"}}
 
-\item{position}{Either \code{"begin"`` or  }"end"` to mark the beginning or end of an environment}
+\item{position}{Either \verb{"begin"`` or  }"end"` to mark the beginning or end of an environment}
 }
 \description{
 Utilities for combining  latex environments into markdown

@@ -13,7 +13,7 @@
 \item \code{longitude}: constant
 \item \code{wind_speed}: in miles-per-hour
 \item \code{wind_direction}: direction wind is coming from, as a compass reading: 0 - 360 degrees, with 0 meaning north
-\item \code{air pressure}: in hectopascals
+\item \verb{air pressure}: in hectopascals
 \item \code{temperature_dewpoint}: in degrees C
 \item \code{temperature}: in degrees C
 \item \code{precip}: amount of liquid precipitation, in mm, over the last interval

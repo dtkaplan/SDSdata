@@ -4,8 +4,11 @@
 \alias{sds_table_caption}
 \title{Adds a table caption for a markdown table or other content}
 \usage{
-sds_table_caption(caption, name = NULL,
-  format = ifelse(knitr::is_latex_output(), "latex", "html"))
+sds_table_caption(
+  caption,
+  name = NULL,
+  format = ifelse(knitr::is_latex_output(), "latex", "html")
+)
 }
 \arguments{
 \item{caption}{the character string for the new word}

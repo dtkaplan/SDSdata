@@ -4,11 +4,19 @@
 \alias{sds_table}
 \title{Format data frames nicely for SDS book}
 \usage{
-sds_table(data, show_n = 6L, nrows = nrow(data), row.names = FALSE,
-  footnote = NULL, format = ifelse(knitr::is_latex_output(), "latex",
-  "html"), caption = NULL, align = NULL,
+sds_table(
+  data,
+  show_n = 6L,
+  nrows = nrow(data),
+  row.names = FALSE,
+  footnote = NULL,
+  format = ifelse(knitr::is_latex_output(), "latex", "html"),
+  caption = NULL,
+  align = NULL,
   in_margin = knitr::opts_current$get("in_margin"),
-  label = knitr::opts_current$get("label"), ...)
+  label = knitr::opts_current$get("label"),
+  ...
+)
 }
 \arguments{
 \item{data}{the data frame to be displayed}

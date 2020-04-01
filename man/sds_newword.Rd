@@ -4,8 +4,7 @@
 \alias{sds_newword}
 \title{Define a new word in the text.}
 \usage{
-sds_newword(str, format = ifelse(knitr::is_latex_output(), "latex",
-  "html"))
+sds_newword(str, format = ifelse(knitr::is_latex_output(), "latex", "html"))
 }
 \arguments{
 \item{str}{the character string for the new word}

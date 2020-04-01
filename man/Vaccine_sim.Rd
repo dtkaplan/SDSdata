@@ -15,7 +15,7 @@
 The symbol "o" in the data frame indicates negation. For example, the levels
 of \code{Flu} are \code{"Yes"} and \code{"o"}, which means yes and no.}
 \usage{
-data(Butterfly)
+data(Vaccine_sim)
 }
 \description{
 These data were generated with a structural causal model. See details.
@@ -24,7 +24,7 @@ These data were generated with a structural causal model. See details.
 The data were generated with
 \code{set.seed(102)}
 
-\code{acy_sim(Health ~ 0,}
+\verb{acy_sim(Health ~ 0,}
 \itemize{
 \item \preformatted{    `Vaccination ~ 1.73 - 3.47 * Health,`
 }

@@ -4,9 +4,14 @@
 \alias{sds_image}
 \title{Render an image in either html or latex as appropriate.}
 \usage{
-sds_image(img, width = NULL, height = NULL, lwidth = width,
-  lheight = height, format = ifelse(knitr::is_latex_output(), "latex",
-  "html"))
+sds_image(
+  img,
+  width = NULL,
+  height = NULL,
+  lwidth = width,
+  lheight = height,
+  format = ifelse(knitr::is_latex_output(), "latex", "html")
+)
 }
 \arguments{
 \item{img}{quoted relative path name of image}

@@ -6,30 +6,35 @@
 \format{Character string specifying output format from knitr processing. This
 will be set automatically when run within knitr.}
 \usage{
-sds_image_from_file(filepath, width = "80\%", height = NULL,
-  tex_width = width, format = ifelse(knitr::is_html_output(), "html",
-  "latex"), more_tags = "")
+sds_image_from_file(
+  filepath,
+  width = "80\%",
+  height = NULL,
+  tex_width = width,
+  format = ifelse(knitr::is_html_output(), "html", "latex"),
+  more_tags = ""
+)
 }
 \arguments{
 \item{filepath}{character string with path to the image file. The image file
 must be PNG or JPEG or something that works in HTML}
 
 \item{width}{An optional character string specifying the width in some
-valid HTML format, e.g. \code{"50\%"``  or }"10px"`. Ignored in latex output.}
+valid HTML format, e.g. \verb{"50\%"``  or }"10px"`. Ignored in latex output.}
 
 \item{height}{Like \code{width}}
 
 \item{tex_width}{Optional character string giving width of image in a latex-suitable
 format, e.g. "100pt". When \code{tex_width} is defined, it has priority over \code{width}.}
 
-\item{more_tags}{An optional character string containing more text to be inserted into the \code{<img>} tag.}
+\item{more_tags}{An optional character string containing more text to be inserted into the \verb{<img>} tag.}
 }
 \value{
-A character string containing an \code{<img>} tag with a b64 encoded image
-as the value of the \code{src=} field.
+A character string containing an \verb{<img>} tag with a b64 encoded image
+as the value of the \verb{src=} field.
 }
 \description{
-In HTML mode, knitr \code{include_graphics()} will generate a \code{<img src=  >} tag to include
+In HTML mode, knitr \code{include_graphics()} will generate a \verb{<img src=  >} tag to include
 an image file. To do this, the image file needs to be in a place where it is available
 for display when the HTML is rendered in a browser. For images in  packages, this is
 not going to work.

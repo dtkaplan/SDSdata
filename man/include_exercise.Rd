@@ -4,9 +4,14 @@
 \alias{include_exercise}
 \title{Insert an exercise from a file}
 \usage{
-include_exercise(id, show_answer = getOption("show_exercise", TRUE),
-  verbose = TRUE, directory = "Exercises", prob_name = "Problem XX",
-  format = ifelse(knitr::is_latex_output(), "latex", "html"))
+include_exercise(
+  id,
+  show_answer = getOption("show_exercise", TRUE),
+  verbose = TRUE,
+  directory = "Exercises",
+  prob_name = "Problem XX",
+  format = ifelse(knitr::is_latex_output(), "latex", "html")
+)
 }
 \arguments{
 \item{id}{the unique ID of the exercise file. Don't include the file type suffix ".Rmd" in the id.}

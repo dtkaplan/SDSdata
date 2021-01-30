@@ -4,7 +4,7 @@
 #'
 #' @docType data
 #'
-#' @usage data(Butterfly)
+#' @usage data(Vaccine_sim)
 #'
 #' @format
 #' A data frame object with one row for each (simulated) person:
@@ -17,6 +17,8 @@
 #' The symbol "o" in the data frame indicates negation. For example, the levels
 #' of `Flu` are `"Yes"` and `"o"`, which means yes and no.
 #'
+#' @keywords datasets
+#'
 #' @details The data were generated with
 #' `set.seed(102)`
 #'
@@ -26,4 +28,5 @@
 #' -          `Death ~ -4.595 + 0.704*Flu + 2.86*Health -  0.3*Health*Flu,`
 #' -          `Health = "Poor", Vaccination = "Received", Flu = "Yes",``
 #' -          `Death = "Died", samp_n = 10000)`
+#'
 "Vaccine_sim"

@@ -18,7 +18,7 @@ question_blank <- function(prompts = "", length = 3, underline = "  .",
 word_pdf_links <- function() {
   stub_name <- tools::file_path_sans_ext(knitr::current_input())
   if (knitr::opts_knit$get('rmarkdown.pandoc.to') %in% c("html")) {
-    glue::glue("Get formatted versions: [Word](/word-versions/{stub_name}.docx) : [PDF](/pdf-versions/{stub_name}.pdf)")
+    glue::glue("Get formatted versions: [Word](word-versions/{stub_name}.docx) : [PDF](pdf-versions/{stub_name}.pdf)")
   } else {
     " "
   }

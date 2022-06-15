@@ -4,7 +4,8 @@
 \name{MPG}
 \alias{MPG}
 \title{Fuel economy measurements on US car models}
-\format{A data.frame object with one row year for each model or configuration
+\format{
+A data.frame object with one row year for each model or configuration
 of automobile or light truck sold in the US.
 \itemize{
 \item manufacturer: name of company making the vehicle
@@ -56,7 +57,8 @@ is taken to represent a year. Note, Carbon-per-year (without the oxygen) is roug
 \item lockup_torque_converter:
 \item air_aspiration:
 \item model_year:
-}}
+}
+}
 \source{
 Data from the US Environmental Protection Agency (EPA)
 available at \url{https://www.fueleconomy.gov/feg/download.shtml}. The file for 2019 model-year

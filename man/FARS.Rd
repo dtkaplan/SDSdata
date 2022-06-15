@@ -4,7 +4,8 @@
 \name{FARS}
 \alias{FARS}
 \title{Annual summaries concerning motor-vehicle related fatalities in the US#'}
-\format{A data.frame object with one row per year from 1994 to 2016
+\format{
+A data.frame object with one row per year from 1994 to 2016
 \itemize{
 \item \code{year}: The year covered by the summary
 \item \code{crashes} the number of incidents in that year
@@ -20,7 +21,8 @@ involved in an incident or not. (billions of miles)
 \item \code{population} the population of the US (thousands of people)
 \item \code{registered_vehicles} the number of motor vehicles registered in the US (thousands)
 \item \code{licenced_drivers} the number of licenced drivers in the US (thousands)
-}}
+}
+}
 \source{
 From the Fatality Analysis Reporting System \url{https://www-fars.nhtsa.dot.gov/Main/index.aspx}
 of the US Department of Transportation (DOT). The

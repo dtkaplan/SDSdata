@@ -4,7 +4,8 @@
 \name{Hill_racing}
 \alias{Hill_racing}
 \title{Winning times in Scottish Hill races, 2005-2017}
-\format{A data.frame object with one row for each race winner. Most races have both a
+\format{
+A data.frame object with one row for each race winner. Most races have both a
 male and female winner.
 
 "year"     "sex"      "name"     "time"     "race"     "distance" "climb"
@@ -16,7 +17,8 @@ male and female winner.
 \item \code{sex}: the runner's sex, coded as \code{F} and \code{M}
 \item \code{distance}: the total distance of the race in km
 \item \code{climb}: the total vertical climb of the race in meters
-}}
+}
+}
 \source{
 The data were scraped from the \href{http://www.scottishhillracing.co.uk/ResultsSummary.aspx}{Scottish Hill Racing site}.
 }

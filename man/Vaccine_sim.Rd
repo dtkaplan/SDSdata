@@ -4,7 +4,8 @@
 \name{Vaccine_sim}
 \alias{Vaccine_sim}
 \title{Simulated vaccine/flu/mortality data}
-\format{A data frame object with one row for each (simulated) person:
+\format{
+A data frame object with one row for each (simulated) person:
 \itemize{
 \item \code{health}: whether the person was in poor health
 \item \code{vaccination} did the person get vaccinated
@@ -13,7 +14,8 @@
 }
 
 The symbol "o" in the data frame indicates negation. For example, the levels
-of \code{Flu} are \code{"Yes"} and \code{"o"}, which means yes and no.}
+of \code{Flu} are \code{"Yes"} and \code{"o"}, which means yes and no.
+}
 \usage{
 data(Vaccine_sim)
 }

@@ -4,7 +4,8 @@
 \name{Race_weather}
 \alias{Race_weather}
 \title{Weather during the Cherry Blossom 10-miler}
-\format{A data.frame object with one row for each year the  Cherry Blossom 10-miler
+\format{
+A data.frame object with one row for each year the  Cherry Blossom 10-miler
 was held
 \itemize{
 \item \code{year}
@@ -16,7 +17,8 @@ was held
 \item \code{gust} Speed of wind gusts, if substantially different from \code{wind_speed}
 \item \code{precip} Precipitation during one hour, in  inches
 \item \code{clouds} Description of the sky
-}}
+}
+}
 \source{
 Scraped from Weather Underground via URLs like
 \url{https://www.wunderground.com/history/daily/us/dc/washington/KDCA/date/2010-4-11}

@@ -4,14 +4,16 @@
 \name{Speed_mpg}
 \alias{Speed_mpg}
 \title{Fuel economy as a function  of vehicle  speed}
-\format{A data.frame object with one row for each observation
+\format{
+A data.frame object with one row for each observation
 \itemize{
 \item \code{order} measurements were collected consecutively at  each speed. The entry with order 1
 was the first measurement, order 2 was the second,  and so on.
 \item \code{speed} the speed (miles per hour) at which the vehicle was travelling. Measured  from the car's speedometer.
 \item \code{mpg}  "Instantaneous" fuel economy (miles per gallon) according to the car's dashboard
 reading. In fact, the reading averages over approximately a second of travel.
-}}
+}
+}
 \source{
 D.T. Kaplan
 }

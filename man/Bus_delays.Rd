@@ -4,7 +4,8 @@
 \name{Bus_delays}
 \alias{Bus_delays}
 \title{School bus delays in New York City}
-\format{A data.frame object with one row for each of 238,266 bus-delay
+\format{
+A data.frame object with one row for each of 238,266 bus-delay
 incidents in New York City.
 \itemize{
 \item \code{breakdown_id}: A unique (almost) id number for each incident
@@ -18,7 +19,8 @@ school students. (Older students ride the city bus in NYC.)
 \item \code{n_students} how many student passengers were on the bus when the delay occurred.
 \item \code{company} the name of the company operating the bus
 \item \code{date} the date of the incident
-}}
+}
+}
 \source{
 The data themselves were scraped from the New York City OpenData site,
 \url{https://data.cityofnewyork.us/Transportation/Bus-Breakdown-and-Delays/ez4e-fazm} on Dec. 13, 2018.

@@ -4,7 +4,8 @@
 \name{Births_2014}
 \alias{Births_2014}
 \title{Medical info on 100,000 randomly sampled births in the US in 2014}
-\format{A data frame with a random sample of size 100000 from the complete CDC set of 3,998,175 cases, each of which is a birth in the US in 2014.
+\format{
+A data frame with a random sample of size 100000 from the complete CDC set of 3,998,175 cases, each of which is a birth in the US in 2014.
 \itemize{
 \item{\code{age_mother}} {Mother's age at date of birth}
 \item{\code{age_father}} {Father's age at date of birth}
@@ -29,7 +30,8 @@
 \item{\code{month_start_prenatal}} {Month started in prenatal care. 15 means never started.}
 \item{\code{prenatal_visits}} {Number of visits to prenatal care.}
 
-}}
+}
+}
 \usage{
 Births_2014
 }

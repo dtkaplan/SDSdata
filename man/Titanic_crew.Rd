@@ -4,7 +4,8 @@
 \name{Titanic_crew}
 \alias{Titanic_crew}
 \title{Crew on the Titanic}
-\format{\code{Titanic_crew}: A data.frame object with one row for each crew member on the ship when she sank:
+\format{
+\code{Titanic_crew}: A data.frame object with one row for each crew member on the ship when she sank:
 \itemize{
 \item \code{crew}: The broad category of job held by the crewman
 \item \code{job}: A more specific description of the job
@@ -14,7 +15,8 @@
 \item \code{boat}: For survivors, the lifeboat from which they were picked up
 \item \code{body}: For those whose body was recovered, the number assigned to the body. Missing for survivors or those whose body was never recovered.
 \item \code{class}: Always "crew". This if for compatibility with \code{Titanic_passengers}
-}}
+}
+}
 \source{
 Scraped from \url{https://www.encyclopedia-titanica.org/titanic-passenger-lists/}.
 }

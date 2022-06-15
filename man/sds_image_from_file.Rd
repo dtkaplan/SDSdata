@@ -3,8 +3,10 @@
 \name{sds_image_from_file}
 \alias{sds_image_from_file}
 \title{Embed Images Directly in HTML Document}
-\format{Character string specifying output format from knitr processing. This
-will be set automatically when run within knitr.}
+\format{
+Character string specifying output format from knitr processing. This
+will be set automatically when run within knitr.
+}
 \usage{
 sds_image_from_file(
   filepath,

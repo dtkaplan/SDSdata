@@ -4,14 +4,16 @@
 \name{UCB_applicants}
 \alias{UCB_applicants}
 \title{Roster of applicants to six major departments at UC Berkeley}
-\format{A data.frame object with 4236 rows, one for each of the applicants to
+\format{
+A data.frame object with 4236 rows, one for each of the applicants to
 graduate school at UC Berkeley for the Fall 1973 quarter.
 \itemize{
 \item \code{admit}: Whether the applicant was admitted.
 \item \code{gender}: male or female
 \item \code{dept}: The graduate department applied to. Rather than identifying the actual
 departments involved, the data released by Berkeley used letter codes.
-}}
+}
+}
 \source{
 The \code{UCBApplicants} summary table in the \code{datasets} R package.
 }

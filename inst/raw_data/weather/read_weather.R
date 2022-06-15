@@ -12,7 +12,7 @@ Ramsey_weather <- NULL
 
 # Documentation of variable names in the weather files: ftp://ftp.ncdc.noaa.gov/pub/data/noaa/ish-format-document.pdf
 
-for (year in 1991:2018) {
+for (year in 1992:2022) {
   cat(year, "\n")
   Surface <- try(
     countyweather:::int_surface_data(usaf_code = "726584", wban_code = "14927", year = year,
@@ -27,7 +27,7 @@ for (year in 1991:2018) {
              wind_direction = as.numeric(wind_direction),
              air_pressure = as.numeric(air_pressure) / 10,
              temperature = as.numeric(temperature) / 10,
-             temperature_dewpoint = as.numeric(temperature) / 10,
+             temperature_dewpoint = as.numeric(temperature_dewpoint) / 10,
              precip = as.numeric(AA1_depth) / 10)
 
     Ramsey_weather <- bind_rows(Ramsey_weather, Tmp)

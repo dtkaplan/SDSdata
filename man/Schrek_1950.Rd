@@ -4,7 +4,8 @@
 \name{Schrek_1950}
 \alias{Schrek_1950}
 \title{Smoking among cancer patients}
-\format{\code{Schrek_1950}: A data.frame object with one row for each patient.
+\format{
+\code{Schrek_1950}: A data.frame object with one row for each patient.
 \itemize{
 \item \code{age}: The patient's age. This  is rounded down to the nearest decade, since Schrek et al. presented
 ages  as 20, 30, 40, 50, ...
@@ -13,7 +14,8 @@ ages  as 20, 30, 40, 50, ...
 levels would be "moderate or heavy smoker" and "nonsmoker or  light smoker." Light smoking
 was defined as consuming 10 or fewer cigarettes per day (or, two or fewer cigars or three  or fewer pipe
 bowls).
-}}
+}
+}
 \source{
 Reconstructed from Schrek, Baker, et al.,
 "Tobacco Smoking as an Etiologic Factor in Disease. I. Cancer"

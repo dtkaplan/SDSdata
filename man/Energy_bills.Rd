@@ -4,7 +4,8 @@
 \name{Energy_bills}
 \alias{Energy_bills}
 \title{Utility bills over 20 years for a home}
-\format{A data.frame object with one row for each monthly bill.
+\format{
+A data.frame object with one row for each monthly bill.
 \itemize{
 \item \code{month}, \code{day}, \code{year} -- numerical values indicating the date the bill was produced
 \item \code{temp} -- the average temperature for the period covered by the  bill, in degrees F
@@ -15,7 +16,8 @@
 \item \code{totalbill} -- the total amount, in USD, of the bill
 \item \code{gasbill} -- the part of \code{totalbill} attributable to natural gas use
 \item \code{elecbill} -- the part of \code{totalbill} attributable to electricity consumption
-}}
+}
+}
 \source{
 The data were transcribed from  monthly utility bills for Danny Kaplan's house
 in Saint Paul, Minnesota, USA

@@ -4,14 +4,16 @@
 \name{Expiration}
 \alias{Expiration}
 \title{Expiratory volume and smoking amount teens and pre-teens}
-\format{A data.frame object with one row for each person.
+\format{
+A data.frame object with one row for each person.
 \itemize{
 \item \code{age} in years
 \item \code{height} in  inches
 \item \code{sex} ("male" or "female")
 \item \code{volume} the full  expiratory lung volume (liters)
 \item \code{smoke} whether the child or at least one parent  smokes.
-}}
+}
+}
 \source{
 The data are  published as part of an article:
 Michael Kahn,  "An Exhalent Problem for Teaching Statistics" (2005)

@@ -4,7 +4,9 @@
 \name{Purchases}
 \alias{Purchases}
 \title{Credit card transaction data}
-\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 74 rows and 6 columns.}
+\format{
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 74 rows and 6 columns.
+}
 \usage{
 Purchases
 }

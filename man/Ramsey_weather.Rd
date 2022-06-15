@@ -4,7 +4,8 @@
 \name{Ramsey_weather}
 \alias{Ramsey_weather}
 \title{Hourly weather records in Ramsey County, MN}
-\format{A data.frame object with one row for measurement time
+\format{
+A data.frame object with one row for measurement time
 \itemize{
 \item \code{usaf_station}: the USAF code for the weather station (constant)
 \item \code{wban_station}: the WBAN code for the weather station (constant)
@@ -19,7 +20,8 @@
 \item \code{precip}: amount of liquid precipitation, in mm, over the last interval
 \item \code{precip_hrs}: the length of the interval over which \code{precip} was accumulated
 \item \code{precip_rate}: a rate: \code{precip / precip_hrs}.
-}}
+}
+}
 \source{
 See the script in \code{system.file(package = "SDSdata", "raw_data/weather/read_weather.R")}
 }
@@ -27,7 +29,7 @@ See the script in \code{system.file(package = "SDSdata", "raw_data/weather/read_
 data(Ramsey_weather)
 }
 \description{
-These data, covering the period from late September 1992 through mid July 2018, were scraped from
+These data, covering the period from late September 1992 through mid June 2022, were scraped from
 the NOAA weather site. Measurements are made roughly every hour, although there are gaps and occasions
 when the measurements are much more frequent.
 }

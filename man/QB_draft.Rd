@@ -4,7 +4,8 @@
 \name{QB_draft}
 \alias{QB_draft}
 \title{Quarterbacks in the National Football League draft, 1997-2013}
-\format{A data.frame object with one row for each American football college quarterback
+\format{
+A data.frame object with one row for each American football college quarterback
 who was drafted into the National Football League.
 \itemize{
 \item \code{Year}: Year drafted into the NFL
@@ -55,7 +56,8 @@ who was drafted into the National Football League.
 \item \code{sex}: coded as \code{F} and \code{M}
 \item \code{lengths}: the total distance was divided into lengths of either 25 or 50 meters. \code{lengths} gives the number of such lengths in the total distance.
 \item \code{dist}: the total distance (in meters) of the race
-}}
+}
+}
 \source{
 Wolfson, J., Addona, V., and Schmicker, R. (2017) Forecasting the performance
 of college prospects selected in the National Football League draft. In J.

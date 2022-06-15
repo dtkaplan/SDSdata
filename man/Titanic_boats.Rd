@@ -4,7 +4,8 @@
 \name{Titanic_boats}
 \alias{Titanic_boats}
 \title{Lifeboats carried by the Titanic}
-\format{\code{Titanic_boats}: A data.frame object with one row for each of the twenty lifeboats
+\format{
+\code{Titanic_boats}: A data.frame object with one row for each of the twenty lifeboats
 on the Titanic
 \itemize{
 \item \code{boat}: The boat's identifier. Boats A, B, C, and D were "collapsible boats" (rafts).
@@ -13,7 +14,8 @@ on the Titanic
 \item \code{position}: Where the boat was positioned on the ship: bow or stern (that is, front or back).
 \item \code{launch_order}: The boat's position in the launch sequence: 1:20
 \item \code{launch_time}: The time at which the boat was launched.
-}}
+}
+}
 \source{
 Scraped from \url{https://en.wikipedia.org/wiki/Lifeboats_of_the_RMS_Titanic}
 }

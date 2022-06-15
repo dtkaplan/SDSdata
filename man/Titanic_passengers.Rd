@@ -4,7 +4,8 @@
 \name{Titanic_passengers}
 \alias{Titanic_passengers}
 \title{Passengers and crew on RMS Titanic}
-\format{\code{Titanic_passengers}: A data.frame object with one row for each passenger
+\format{
+\code{Titanic_passengers}: A data.frame object with one row for each passenger
 \itemize{
 \item \code{class}: The passenger's cabin class. Values first, second, or steerage.
 \item \code{survived}: Whether the passenger survived the sinking. Values: 1 if survived, 0 otherwise
@@ -22,7 +23,8 @@ were transferred from one boat to another. This  variable is the first boat.
 \item \code{ticket}: the passenger's ticket number. (Passengers travelling together might have shared a ticket.)
 \item \code{destination}: the home or destination town for the passenger
 \item \code{name}: The passenger's name
-}}
+}
+}
 \source{
 \url{http://biostat.mc.vanderbilt.edu/wiki/pub/Main/DataSets/titanic3.xls} There are a number of
 other potential sources for passenger lists, for instance \url{https://www.encyclopedia-titanica.org/titanic-passenger-lists/}.

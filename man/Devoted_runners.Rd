@@ -4,7 +4,8 @@
 \name{Devoted_runners}
 \alias{Devoted_runners}
 \title{Race results for long-time runners of the Cherry Blossom 10-milers}
-\format{A data.frame object with one row for each runner-year in the Cherry
+\format{
+A data.frame object with one row for each runner-year in the Cherry
 Blossom 10-miler held in Washington, DC. Only those runners with 10 or more successive
 participations in the race are included.
 \itemize{
@@ -17,7 +18,8 @@ participations in the race are included.
 \item \code{name}: the runners' name
 \item \code{PiS/TiS} the runner's position among all runners of the same sex
 \item \code{PiD/TiD}: the runner's position in his or her division.
-}}
+}
+}
 \usage{
 data(Devoted_runners)
 }

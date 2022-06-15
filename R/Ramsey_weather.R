@@ -1,6 +1,6 @@
 #' Hourly weather records in Ramsey County, MN
 #'
-#' These data, covering the period from late September 1992 through mid July 2018, were scraped from
+#' These data, covering the period from late September 1992 through mid June 2022, were scraped from
 #' the NOAA weather site. Measurements are made roughly every hour, although there are gaps and occasions
 #' when the measurements are much more frequent.
 #'

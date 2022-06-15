@@ -4,7 +4,8 @@
 \name{Homocides}
 \alias{Homocides}
 \title{Country-by-country homocide data}
-\format{A data.frame object with one row for each of about 287 countries in various years
+\format{
+A data.frame object with one row for each of about 287 countries in various years
 from 1800 to 2015. (Not all countries are represented for all years. Similarly, some variables
 have non-missing data for only a few years.) The unit of observation is a country in a year.
 \itemize{
@@ -24,7 +25,8 @@ have non-missing data for only a few years.) The unit of observation is a countr
 \item \code{male_15_19} the fraction of the population (\%) that is male and aged 15 to 19
 \item \code{male_unemployment} the fraction of the male workforce that is unemployed
 \item \code{youth_unemployment} the fraction of youth (how defined?) that is not in school or employed
-}}
+}
+}
 \source{
 The data themselves were scraped from the \href{https://www.gapminder.org/data/}{Gapminder site} on July 25, 2019. Gapminder
 organizes the data in separate columns for each year. These have been gathered together so that

@@ -4,7 +4,8 @@
 \name{Butterfly}
 \alias{Butterfly}
 \title{World records in the 100 & 200 m butterfly swim}
-\format{A data.frame object with one row for each world record and variables
+\format{
+A data.frame object with one row for each world record and variables
 \itemize{
 \item \code{time}: the record time in seconds
 \item \code{swimmer} the name of the swimmer
@@ -13,7 +14,8 @@
 \item \code{sex}: coded as \code{F} and \code{M}
 \item \code{lengths}: the total distance was divided into lengths of either 25 or 50 meters. \code{lengths} gives the number of such lengths in the total distance.
 \item \code{dist}: the total distance (in meters) of the race
-}}
+}
+}
 \source{
 \href{https://en.wikipedia.org/wiki/World_record_progression_100_metres_butterfly}{Wikipedia}
 }
